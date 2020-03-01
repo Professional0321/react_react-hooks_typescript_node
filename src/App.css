@@ -1,6 +1,7 @@
 .App {
   height: 100vh;
   text-align: center;
-  font-family: 'Open Sans Condensed'
+  font-family: 'Open Sans Condensed';
+  padding: 2rem 6rem;
 }
 
