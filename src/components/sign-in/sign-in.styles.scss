@@ -1,3 +1,17 @@
 .sign-in {
   width: 30vh;
+  display: flex;
+  flex-direction: column;
+
+  .title {
+    margin: 1rem 0;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  span {
+    font-size: 2rem;
+  }
 }
