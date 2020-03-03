@@ -11,9 +11,9 @@
 //  console.log(`Server is listening on port: ${PORT}`);
 // });
 
-const http = rewquire('http');
+const http = require('http');
 
-const server = http.createServer((req,res) => {
+const server = http.createServer((req, res) => {
   console.log(req);
   process.exit();
 });
