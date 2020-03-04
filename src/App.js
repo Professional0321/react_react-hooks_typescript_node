@@ -5,8 +5,7 @@ import './App.css';
 import Header from './components/header/header.component';
 import HomePage from './pages/homepage/homepage.component';
 import ShopPage from './pages/shop/shop.component';
-import Session from './pages/session/session.component'
-
+import Session from './pages/session/session.component';
 
 function App() {
   return (

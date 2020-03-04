@@ -3,9 +3,9 @@ import './session.styles.scss';
 
 import SignIn from '../../components/sign-in/sign-in.component';
 
-const Session = () => (
+const Session: React.FC = () => (
   <div className="session">
-    <SignIn></SignIn>
+    <SignIn/>
   </div>
 )
 
