@@ -2,8 +2,9 @@ import React from 'react';
 import './sign-in.styles.scss';
 
 import CustomButton from '../custom-button/custom-button.component';
+import User from '../../interface/user.interface';
 
-class SignIn extends React.Component<{}, {email: string, password: string}> {
+class SignIn extends React.Component<{}, User> {
   constructor(props: {}) {
     super(props);
 
@@ -28,9 +29,8 @@ class SignIn extends React.Component<{}, {email: string, password: string}> {
     } as any);
   }
 
-  handleShrinkEffect = (labelName: string): any => {
+  handleShrinkEffect = (labelName: string) => {
     const {email, password} = this.state;
-
     let shrinkClass: string;
 
     if (labelName === "email") {

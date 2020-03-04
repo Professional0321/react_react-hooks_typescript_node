@@ -1,21 +1,19 @@
-// const express = require("express");
+const express = require("express");
+const bodyParser = require('body-parser');
 
-// const PORT = 4000;
-// const app = express();
+const PORT = 4000;
+const app = express();
 
-// app.get("/hello", (req, res) => {
-//   res.send("Hello world");
-// });
+app.use(bodyParser.urlencoded());
 
-// app.listen(PORT, () => {
-//  console.log(`Server is listening on port: ${PORT}`);
-// });
+app.use('/', (req, res, next) => {
+  res.send('<h1>HELLO THIS IS THE SLASH ROUTE</h1>')
+})
 
-const http = require('http');
-
-const server = http.createServer((req, res) => {
-  console.log(req);
-  process.exit();
+app.get("/hello", (req, res) => {
+  res.send("Hello world");
 });
 
-server.listen(4000);
+app.listen(PORT, () => {
+ console.log(`Server is listening on port: ${PORT}`);
+});

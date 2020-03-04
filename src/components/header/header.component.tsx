@@ -4,10 +4,10 @@ import { ReactComponent as Logo } from '../../crown.svg'
 
 import './header.styles.scss';
 
-const Header = () => (
+const Header: React.FC = () => (
   <div className="header">
     <Link className="logo-container" to="/">
-      <Logo></Logo>
+      <Logo/>
     </Link>
     <div className="options">
       <Link className="option" to="/shop">Shop</Link>
