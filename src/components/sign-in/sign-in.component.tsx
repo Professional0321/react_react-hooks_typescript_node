@@ -2,7 +2,9 @@ import React from 'react';
 import './sign-in.styles.scss';
 
 import CustomButton from '../custom-button/custom-button.component';
+import FormInput from '../form-input/form-input.component';
 import User from '../../interface/user.interface';
+
 
 class SignIn extends React.Component<{}, User> {
   constructor(props: {}) {
@@ -52,28 +54,20 @@ class SignIn extends React.Component<{}, User> {
         <h2>I already have an account</h2>
         <span>Sign in with your email and password</span>
         <form onSubmit={() => this.handleSubmit}>
-          <div className="group">
-            <input
-              className="form-input"
-              name="email" 
-              type="email" 
-              value={this.state.email} 
-              onChange={this.handleChange}
-              required={true}
-            />
-            {this.handleShrinkEffect("email")}
-          </div>
-          <div className="group">
-            <input
-              className="form-input"
-              name="password" 
-              type="password" 
-              value={this.state.password} 
-              onChange={this.handleChange}
-              required={true}
-            />
-            {this.handleShrinkEffect("password")}
-          </div>
+          <FormInput 
+            name={"email"} 
+            type={"email"} 
+            value={this.state.email} 
+            handleChange={() => this.handleChange}
+            handleShrinkEffect={() => this.handleShrinkEffect("email")}
+          />
+          <FormInput 
+            name={"password"} 
+            type={"password"} 
+            value={this.state.password} 
+            handleChange={() => this.handleChange}
+            handleShrinkEffect={() => this.handleShrinkEffect("password")}
+          />
           <CustomButton type="submit">Sign In</CustomButton>
         </form>
       </div>

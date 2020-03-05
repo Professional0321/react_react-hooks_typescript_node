@@ -2,6 +2,7 @@ import React from 'react';
 
 import './sign-up.styles.scss';
 import CustomButton from '../custom-button/custom-button.component';
+import FormInput from '../form-input/form-input.component';
 import User from '../../interface/user.interface';
 
 class SignUp extends React.Component<{}, User> {
@@ -24,6 +25,7 @@ class SignUp extends React.Component<{}, User> {
     switch (labelName) {
       case ("displayName"):
         value = displayName;
+        labelName = "display name"
         break;
       case ("email"):
         value = email;
@@ -33,6 +35,7 @@ class SignUp extends React.Component<{}, User> {
         break;
       case ("confirmPassword"):
         value = confirmPassword;
+        labelName = "confirm password"
         break;
     }
 
@@ -58,50 +61,34 @@ class SignUp extends React.Component<{}, User> {
         <h1 className="title">I do not have an account</h1>
         <span>Sign up with your email and password</span>
         <form className="sign-up-form">
-          <div className="group">
-            <input
-              className="form-input"
-              name="displayName" 
-              type="displayName" 
-              value={this.state.displayName} 
-              onChange={this.handleChange}
-              required={true}
-            />
-            {this.handleShrinkEffect("displayName")}
-          </div>
-          <div className="group">
-            <input
-              className="form-input"
-              name="email" 
-              type="email" 
-              value={this.state.email} 
-              onChange={this.handleChange}
-              required={true}
-            />
-            {this.handleShrinkEffect("email")}
-          </div>
-          <div className="group">
-            <input
-              className="form-input"
-              name="password" 
-              type="password" 
-              value={this.state.password} 
-              onChange={this.handleChange}
-              required={true}
-            />
-            {this.handleShrinkEffect("password")}
-          </div>
-          <div className="group">
-            <input
-              className="form-input"
-              name="password" 
-              type="password" 
-              value={this.state.confirmPassword} 
-              onChange={this.handleChange}
-              required={true}
-            />
-            {this.handleShrinkEffect("confirmPassword")}
-          </div>
+          <FormInput
+            name={'displayName'}
+            type={'displayName'}
+            value={this.state.displayName}
+            handleChange={() => this.handleChange}
+            handleShrinkEffect={() => this.handleShrinkEffect('displayName')}
+          />
+          <FormInput
+            name={'email'}
+            type={'email'}
+            value={this.state.email}
+            handleChange={() => this.handleChange}
+            handleShrinkEffect={() => this.handleShrinkEffect('email')}
+          />
+          <FormInput
+            name={'password'}
+            type={'password'}
+            value={this.state.password}
+            handleChange={() => this.handleChange}
+            handleShrinkEffect={() => this.handleShrinkEffect('password')}
+          />
+          <FormInput
+            name={'confirmPassword'}
+            type={'confirmPassword'}
+            value={this.state.confirmPassword}
+            handleChange={() => this.handleChange}
+            handleShrinkEffect={() => this.handleShrinkEffect('confirmPassword')}
+          />
           <CustomButton type="submit">Sign Up</CustomButton>
         </form>
       </div>
