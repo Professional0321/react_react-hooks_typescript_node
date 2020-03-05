@@ -7,10 +7,32 @@ interface Props {
   type: string;
   value: string;
   handleChange: () => any;
-  handleShrinkEffect: () => any;
 }
 
-const FormInput: React.FC<Props> = ({ name, type, value, handleChange, handleShrinkEffect }) => {
+const FormInput: React.FC<Props> = ({ name, type, value, handleChange }) => {
+  const handleShrink = (labelName: string) => {
+    let shrinkClass: string;
+    switch (labelName) {
+      case ("displayName"):
+        labelName = "display name"
+        break;
+      case ("email"):
+        labelName = "email"
+        break;
+      case ("password"):
+        labelName = "password"
+        break;
+      case ("confirmPassword"):
+        labelName = "confirm password"
+        break;
+    }
+    shrinkClass = value.length ? "shrink" : "";
+    return (
+      <label className={`form-input-label ${shrinkClass}`}>
+        {labelName}
+      </label>
+    )
+  }
   return (
     <div className="group">
       <input
@@ -21,7 +43,7 @@ const FormInput: React.FC<Props> = ({ name, type, value, handleChange, handleShr
         onChange={handleChange()}
         required={true}
       />
-    {handleShrinkEffect()}
+    {handleShrink(name)}
     </div>
   )
 }

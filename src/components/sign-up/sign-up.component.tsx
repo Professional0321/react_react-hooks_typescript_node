@@ -17,35 +17,14 @@ class SignUp extends React.Component<{}, User> {
     }
   }
 
-  handleShrinkEffect = (labelName: string) => {
-    const {displayName, email, password, confirmPassword} = this.state;
-    let shrinkClass: string;
-    let value: string; 
+  handleSubmit = async (event: React.FormEvent<HTMLInputElement>) => {
+    event.preventDefault();
+    const { displayName, email, password, confirmPassword } = this.state;
 
-    switch (labelName) {
-      case ("displayName"):
-        value = displayName;
-        labelName = "display name"
-        break;
-      case ("email"):
-        value = email;
-        break;
-      case ("password"):
-        value = password;
-        break;
-      case ("confirmPassword"):
-        value = confirmPassword;
-        labelName = "confirm password"
-        break;
+    if (password !== confirmPassword) {
+      alert("Password doesn't match!");
+      return;
     }
-
-    shrinkClass = value.length ? "shrink" : "";
-
-    return (
-      <label className={`form-input-label ${shrinkClass}`}>
-        {labelName}
-      </label>
-    )
   }
 
   handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
@@ -60,34 +39,30 @@ class SignUp extends React.Component<{}, User> {
       <div className="sign-up">
         <h1 className="title">I do not have an account</h1>
         <span>Sign up with your email and password</span>
-        <form className="sign-up-form">
+        <form className="sign-up-form" onSubmit={() => this.handleSubmit}>
           <FormInput
             name={'displayName'}
             type={'displayName'}
             value={this.state.displayName}
             handleChange={() => this.handleChange}
-            handleShrinkEffect={() => this.handleShrinkEffect('displayName')}
           />
           <FormInput
             name={'email'}
             type={'email'}
             value={this.state.email}
             handleChange={() => this.handleChange}
-            handleShrinkEffect={() => this.handleShrinkEffect('email')}
           />
           <FormInput
             name={'password'}
             type={'password'}
             value={this.state.password}
             handleChange={() => this.handleChange}
-            handleShrinkEffect={() => this.handleShrinkEffect('password')}
           />
           <FormInput
             name={'confirmPassword'}
             type={'confirmPassword'}
             value={this.state.confirmPassword}
             handleChange={() => this.handleChange}
-            handleShrinkEffect={() => this.handleShrinkEffect('confirmPassword')}
           />
           <CustomButton type="submit">Sign Up</CustomButton>
         </form>

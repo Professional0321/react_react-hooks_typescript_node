@@ -16,7 +16,7 @@ class SignIn extends React.Component<{}, User> {
     }
   }
 
-  handleSubmit = (event: React.FormEvent<HTMLInputElement>): void => {
+  handleSubmit = async (event: React.FormEvent<HTMLInputElement>)=> {
     event.preventDefault();
     this.setState({
       email: '',
@@ -30,23 +30,6 @@ class SignIn extends React.Component<{}, User> {
       [target.name]: target.value
     } as any);
   }
-
-  handleShrinkEffect = (labelName: string) => {
-    const {email, password} = this.state;
-    let shrinkClass: string;
-
-    if (labelName === "email") {
-      shrinkClass = email.length ? "shrink" : "";
-    } else if (labelName === "password") {
-      shrinkClass = password.length ? "shrink" : "";
-    }
-
-    return (
-      <label className={`form-input-label ${shrinkClass}`}>
-        {labelName}
-      </label>
-    )
-  }
  
   render() {
     return (
@@ -59,14 +42,12 @@ class SignIn extends React.Component<{}, User> {
             type={"email"} 
             value={this.state.email} 
             handleChange={() => this.handleChange}
-            handleShrinkEffect={() => this.handleShrinkEffect("email")}
           />
           <FormInput 
             name={"password"} 
             type={"password"} 
             value={this.state.password} 
             handleChange={() => this.handleChange}
-            handleShrinkEffect={() => this.handleShrinkEffect("password")}
           />
           <CustomButton type="submit">Sign In</CustomButton>
         </form>

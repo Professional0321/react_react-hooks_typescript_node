@@ -1,27 +1,9 @@
-$sub-color: grey;
-$main-color: black;
-
-@mixin shrinkLabel {
-  top: -1.4rem;
-  font-size: 1.2rem;
-  color: $main-color;
-}
-
 .sign-up {
-  width: 30vh;
   display: flex;
   flex-direction: column;
-  color: $main-color;
+  width: 40rem;
 
   .title {
     margin: 1rem 0;
-  }
-
-  h2 {
-    font-size: 2rem;
-  }
-
-  span {
-    font-size: 2rem;
   }
 }
