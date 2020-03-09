@@ -4,6 +4,7 @@ import './sign-in.styles.scss';
 import CustomButton from '../custom-button/custom-button.component';
 import FormInput from '../form-input/form-input.component';
 import User from '../../interface/user.interface';
+import { login }from '../../util/session_api_util';
 
 
 class SignIn extends React.Component<{}, User> {
@@ -16,12 +17,17 @@ class SignIn extends React.Component<{}, User> {
     }
   }
 
-  handleSubmit = async (event: React.FormEvent) => {
+  handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
+    console.log("hello")
     this.setState({
       email: '',
       password: ''
     })
+
+    const newUser = {email: this.state.email, password: this.state.password}
+    console.log(newUser);
+    login(newUser).then(user => console.log(user));
   }
 
   handleChange = (event: React.ChangeEvent): void => {
@@ -36,7 +42,7 @@ class SignIn extends React.Component<{}, User> {
       <div className="sign-in">
         <h2>I already have an account</h2>
         <span>Sign in with your email and password</span>
-        <form onSubmit={() => this.handleSubmit}>
+        <form onSubmit={(e) => this.handleSubmit(e)}>
           <FormInput 
             name={"email"} 
             type={"email"} 

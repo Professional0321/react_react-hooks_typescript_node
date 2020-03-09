@@ -66,7 +66,7 @@ router.post("/signup", (req, res) => {
   }).catch(error => console.log(error))
 })
 
-router.post("/login", async (req, res) => {
+router.post("/login", (req, res) => {
   const { errors, isValid } = validateLoginInput(req.body);
 
   if (!isValid) {
@@ -75,7 +75,7 @@ router.post("/login", async (req, res) => {
 
   const email = req.body.email;
   const password = req.body.password;
-
+  console.log(email);
   User.findOne({ email }).then(user => {
     if (!user) {
       return res.status(404).json({email: "This user doesn't exist!"})

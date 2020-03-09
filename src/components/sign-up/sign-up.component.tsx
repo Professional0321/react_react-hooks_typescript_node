@@ -39,7 +39,7 @@ class SignUp extends React.Component<{}, User> {
       <div className="sign-up">
         <h1 className="title">I do not have an account</h1>
         <span>Sign up with your email and password</span>
-        <form className="sign-up-form" onSubmit={() => this.handleSubmit}>
+        <form className="sign-up-form" onSubmit={(e) => this.handleSubmit(e)}>
           <FormInput
             name={'displayName'}
             type={'displayName'}

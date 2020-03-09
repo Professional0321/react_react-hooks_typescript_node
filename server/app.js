@@ -20,7 +20,7 @@ app.use(bodyParser.json({limit: '50mb'}));
 app.use(express.json());
 app.use("/api/users", usersRoute)
 
-const PORT = process.env.port || 4000;
+const PORT = process.env.port || 5000;
 app.listen(PORT, () => console.log(`Server is listening on port: ${PORT}`));
 
 
