@@ -6,11 +6,11 @@ const mongoConnect = callback => {
     'mongodb+srv://christrinh:pushone123@crwn-clothing1-kozza.mongodb.net/test?retryWrites=true&w=majority'
   )
     .then(client => {
-      console.log('Connected!');
+      console.log('Connected to MongoDB...');
       callback(client);
     })
     .catch(error => {
-      console.log(error)
+      console.log("Could not connect to MongoDB...")
     })
 };
 

@@ -17,7 +17,7 @@ class SignUp extends React.Component<{}, User> {
     }
   }
 
-  handleSubmit = async (event: React.FormEvent<HTMLInputElement>) => {
+  handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
     const { displayName, email, password, confirmPassword } = this.state;
 
@@ -27,7 +27,7 @@ class SignUp extends React.Component<{}, User> {
     }
   }
 
-  handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
+  handleChange = (event: React.ChangeEvent): void => {
     let target = event.target as HTMLInputElement;
     this.setState({
       [target.name]: target.value
