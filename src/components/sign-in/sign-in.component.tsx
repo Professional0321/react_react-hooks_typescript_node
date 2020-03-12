@@ -26,7 +26,6 @@ class SignIn extends React.Component<{}, User> {
     })
 
     const newUser = {email: this.state.email, password: this.state.password}
-    console.log(newUser);
     login(newUser).then(user => console.log(user));
   }
 

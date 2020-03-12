@@ -5,6 +5,8 @@ import CustomButton from '../custom-button/custom-button.component';
 import FormInput from '../form-input/form-input.component';
 import User from '../../interface/user.interface';
 
+import { signup } from '../../util/session_api_util';
+
 class SignUp extends React.Component<{}, User> {
   constructor(props: {}) {
     super(props);
@@ -25,6 +27,13 @@ class SignUp extends React.Component<{}, User> {
       alert("Password doesn't match!");
       return;
     }
+    const newUser = {
+      displayName,
+      email,
+      password,
+      confirmPassword
+    }
+    signup(newUser).then(newUser => console.log(newUser))
   }
 
   handleChange = (event: React.ChangeEvent): void => {
@@ -60,7 +69,7 @@ class SignUp extends React.Component<{}, User> {
           />
           <FormInput
             name={'confirmPassword'}
-            type={'confirmPassword'}
+            type={'password'}
             value={this.state.confirmPassword}
             handleChange={() => this.handleChange}
           />

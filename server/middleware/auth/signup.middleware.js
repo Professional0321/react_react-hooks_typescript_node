@@ -7,7 +7,7 @@ module.exports = function validateSignUpInput(data) {
   data.displayName = validText(data.displayName) ? data.displayName : '';
   data.email = validText(data.email) ? data.email : '';
   data.password = validText(data.password) ? data.password : '';
-  data.password2 = validText(data.password2) ? data.password2 : '';
+  data.confirmPassword = validText(data.confirmPassword) ? data.confirmPassword : '';
 
   if (!Validator.isLength(data.displayName, { min: 2, max: 30 })) {
     errors.displayName = 'Display Name must be between 2 and 30 characters';
@@ -33,12 +33,12 @@ module.exports = function validateSignUpInput(data) {
     errors.password = 'Password must be at least 6 characters';
   }
 
-  if (Validator.isEmpty(data.password2)) {
-    errors.password2 = 'Confirm Password field is required';
+  if (Validator.isEmpty(data.confirmPassword)) {
+    errors.confirmPassword = 'Confirm Password field is required';
   }
 
-  if (!Validator.equals(data.password, data.password2)) {
-    errors.password2 = 'Passwords must match';
+  if (!Validator.equals(data.password, data.confirmPassword)) {
+    errors.confirmPassword = 'Passwords must match';
   }
 
   return {
