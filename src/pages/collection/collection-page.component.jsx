@@ -12,11 +12,11 @@ const CollectionPage = ({ match }) => {
   console.log(collection)
   const { title, items } = collection;
   return ( 
-    <div className="collection-preview">
+    <div className="collection-page">
       <h1 className="title">{title.toUpperCase()}</h1>
       <div className="items">
       {
-        items.filter((item, idx) => idx < 4)
+        items.filter((item, idx) => idx < 5)
         .map(({id, ...otherItemProps}) => (
           <CollectionItem key={id} {...otherItemProps}></CollectionItem>
         ))

@@ -4,11 +4,15 @@ import './sign-in.styles.scss';
 import CustomButton from '../custom-button/custom-button.component';
 import FormInput from '../form-input/form-input.component';
 import User from '../../interface/user.interface';
-import { login }from '../../util/session_api_util';
+import { login } from '../../util/session_api_util';
+
+import CurrentUserContext from '../../context/current-user/current-user.context';
 
 
-class SignIn extends React.Component<{}, User> {
-  constructor(props: {}) {
+class SignIn extends React.Component {
+  static contextType = CurrentUserContext;
+
+  constructor(props) {
     super(props);
 
     this.state = {
@@ -17,9 +21,8 @@ class SignIn extends React.Component<{}, User> {
     }
   }
 
-  handleSubmit = (event: React.FormEvent) => {
+  handleSubmit = (event) => {
     event.preventDefault();
-    console.log("hello")
     this.setState({
       email: '',
       password: ''
@@ -29,12 +32,19 @@ class SignIn extends React.Component<{}, User> {
     login(newUser).then(user => console.log(user));
   }
 
-  handleChange = (event: React.ChangeEvent): void => {
-    let target = event.target as HTMLInputElement;
+  handleChange = (event) => {
+    let target = event.target;
     this.setState({
       [target.name]: target.value
-    } as any);
+    });
   }
+
+  // handleChange = (event: React.ChangeEvent): void => {
+  //   let target = event.target as HTMLInputElement;
+  //   this.setState({
+  //     [target.name]: target.value
+  //   } as any);
+  // }
  
   render() {
     return (
