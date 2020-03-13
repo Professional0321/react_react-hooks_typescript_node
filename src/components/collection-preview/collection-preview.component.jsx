@@ -8,8 +8,7 @@ import CollectionsContext from '../../context/collections/collections.context';
 const CollectionPreview = ({ match }) => {
   const collections = useContext(CollectionsContext)
   const collection = collections[match.params.collectionId]
-  console.log(collections)
-  console.log(collection)
+  console.log(collection, "COLLECTION")
   const { title, items } = collection;
   return ( 
     <div className="collection-preview">
@@ -17,8 +16,8 @@ const CollectionPreview = ({ match }) => {
       <div className="items">
         {
           items.filter((item, idx) => idx < 4)
-          .map(({id, ...otherItemProps}) => (
-            <CollectionItem key={id} {...otherItemProps}></CollectionItem>
+          .map((item) => (
+            <CollectionItem key={item.id} item={item}></CollectionItem>
           ))
         }
       </div>

@@ -8,7 +8,7 @@ import ShopPage from './pages/shop/shop.component';
 import Session from './pages/session/session.component';
 
 // import CurrentUserContext from './context/current-user/current-user.context';
-import UserProvider from './context/current-user/current-user.context';
+import UserProvider from './providers/current-user/current-.context';
 
 const App = () => {
   // const currentUser = { displayName: 'chris', loggedIn: true}

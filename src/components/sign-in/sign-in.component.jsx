@@ -4,9 +4,9 @@ import './sign-in.styles.scss';
 import CustomButton from '../custom-button/custom-button.component';
 import FormInput from '../form-input/form-input.component';
 import User from '../../interface/user.interface';
-import { login } from '../../util/session_api_util';
+import { login } from '../../providers/current-user/session_api_util';
 
-import CurrentUserContext from '../../context/current-user/current-user.context';
+import CurrentUserContext from '../../providers/current-user/current-.context';
 
 
 class SignIn extends React.Component {

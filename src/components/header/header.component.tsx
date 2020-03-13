@@ -11,7 +11,6 @@ import { CartContext } from '../../providers/cart/cart.provider';
 
 const Header: React.FC = () => {
   const { hidden } = useContext(CartContext);
-  console.log(hidden, "hidden");
   return (
     <div className="header">
       <Link className="logo-container" to="/">

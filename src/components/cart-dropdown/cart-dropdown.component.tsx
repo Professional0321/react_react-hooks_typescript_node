@@ -8,7 +8,7 @@ import { CartContext } from '../../providers/cart/cart.provider';
 const CartDropdown: React.FC = () => {
   const { cartItems, toggleHidden } = useContext(CartContext);
   const showCartItems = () => {
-    if (cartItems.length) {
+    if (cartItems.length > 0) {
       return (
         cartItems.map(cartItem => (
           <CartItem key={cartItem.id} item={cartItem}/>
@@ -22,8 +22,8 @@ const CartDropdown: React.FC = () => {
   }
   return (
     <div className="cart-dropdown">
-      <div className="car-items">
-        {showCartItems}
+      <div className="cart-items">
+        {showCartItems()}
       </div>
       <CustomButton>GO TO CHECKOUT</CustomButton>
     </div>

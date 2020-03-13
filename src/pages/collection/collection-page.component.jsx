@@ -7,9 +7,6 @@ import CollectionContext from '../../context/collections/collections.context';
 const CollectionPage = ({ match }) => {
   const collections = useContext(CollectionContext)
   const collection = collections[match.params.collectionId]
-  console.log(match.params)
-  console.log(collections)
-  console.log(collection)
   const { title, items } = collection;
   return ( 
     <div className="collection-page">
@@ -17,8 +14,8 @@ const CollectionPage = ({ match }) => {
       <div className="items">
       {
         items.filter((item, idx) => idx < 5)
-        .map(({id, ...otherItemProps}) => (
-          <CollectionItem key={id} {...otherItemProps}></CollectionItem>
+        .map((item) => (
+          <CollectionItem key={item.id} item={item}></CollectionItem>
         ))
       }
     </div>

@@ -5,7 +5,7 @@ import CustomButton from '../custom-button/custom-button.component';
 import FormInput from '../form-input/form-input.component';
 import User from '../../interface/user.interface';
 
-import { signup } from '../../util/session_api_util';
+import { signup } from '../../providers/current-user/session_api_util';
 
 class SignUp extends React.Component<{}, User> {
   constructor(props: {}) {
