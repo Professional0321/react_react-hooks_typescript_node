@@ -6,6 +6,7 @@ import Header from './components/header/header.component';
 import HomePage from './pages/homepage/homepage.component';
 import ShopPage from './pages/shop/shop.component';
 import Session from './pages/session/session.component';
+import CheckoutPage from './pages/checkout/checkout.component';
 
 // import CurrentUserContext from './context/current-user/current-user.context';
 import UserProvider from './providers/current-user/current-.context';
@@ -19,6 +20,7 @@ const App = () => {
           <Route exact path="/" component={HomePage}></Route>
           <Route path="/shop" component={ShopPage}></Route>
           <Route path="/signin" component={Session}></Route>
+          <Route exact path="/checkout" component={CheckoutPage}></Route>
         </Switch>
       </div>
   )
