@@ -1,6 +1,13 @@
 import React, { createContext , useState, useEffect } from 'react';
 
-import { addItemToCart, removeItemFromCart } from './cart.utils';
+import { 
+  addItemToCart, 
+  removeItemFromCart,
+  addPriceToTotal,
+  removePriceFromTotal,
+  addItemToCount,
+  removeItemFromCount
+ } from './cart.utils';
 
 export const CartContext = createContext({
   hidden: true,
@@ -19,8 +26,16 @@ const CartProvider = ({ children }) => {
   const [cartItemsCount, setCartItemsCount] = useState(0);
   const [totalCost, setTotalCost] = useState(0)
 
-  const addItem = item => setCartItems(addItemToCart(cartItems, item))
-  const removeItem = item => setCartItems(removeItemFromCart(cartItems, item))
+  const addItem = item => {
+    setCartItems(addItemToCart(cartItems, item));
+    setTotalCost(addPriceToTotal(totalCost, item.price));
+    setCartItemsCount(addItemToCount(cartItemsCount, 1));
+  };
+  const removeItem = item => {
+    setCartItems(removeItemFromCart(cartItems, item));
+    setTotalCost(removePriceFromTotal(totalCost, item.price));
+    setCartItemsCount(removeItemFromCount(cartItemsCount, 1));
+  };
   const toggleHidden = () => setHidden(!hidden);
 
   return (

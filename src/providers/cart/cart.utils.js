@@ -1,3 +1,19 @@
+export const addPriceToTotal = (totalCost, cartItemPrice) => {
+  return totalCost + cartItemPrice;
+}
+
+export const removePriceFromTotal = (totalCost, cartItemPrice) => {
+  return totalCost - cartItemPrice;
+}
+
+export const addItemToCount = (cartItemCount, number) => {
+  return cartItemCount + number;
+}
+
+export const removeItemFromCount = (cartItemCount, number) => {
+  return cartItemCount - number;
+}
+
 export const addItemToCart = (cartItems, cartItemToAdd) => {
   const existingCartItem = cartItems.find(
     cartItem => cartItem.id === cartItemToAdd.id
