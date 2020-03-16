@@ -6,7 +6,8 @@ import {
   addPriceToTotal,
   removePriceFromTotal,
   addItemToCount,
-  removeItemFromCount
+  removeItemFromCount,
+  clearItemFromCart
  } from './cart.utils';
 
 export const CartContext = createContext({
@@ -15,7 +16,7 @@ export const CartContext = createContext({
   cartItems: [],
   addItem: () => {},
   removeItem: () => {},
-  clearItemFromCart: () => {},
+  clearCartItem: () => {},
   cartItemsCount: 0,
   total: 0
 })
@@ -31,11 +32,20 @@ const CartProvider = ({ children }) => {
     setTotalCost(addPriceToTotal(totalCost, item.price));
     setCartItemsCount(addItemToCount(cartItemsCount, 1));
   };
+
   const removeItem = item => {
     setCartItems(removeItemFromCart(cartItems, item));
     setTotalCost(removePriceFromTotal(totalCost, item.price));
     setCartItemsCount(removeItemFromCount(cartItemsCount, 1));
   };
+
+  const clearCartItem = item => {
+    const [newCartItems, newTotalCost, newCartItemCount] = clearItemFromCart(cartItems, item);
+    setCartItems(newCartItems);
+    setTotalCost(removePriceFromTotal(totalCost, newTotalCost))
+    setCartItemsCount(newCartItemCount);
+  }
+
   const toggleHidden = () => setHidden(!hidden);
 
   return (
@@ -47,7 +57,8 @@ const CartProvider = ({ children }) => {
         addItem,
         removeItem,
         cartItemsCount,
-        totalCost
+        totalCost,
+        clearCartItem
       }}
     >
       { children }

@@ -46,6 +46,32 @@ export const removeItemFromCart = (cartItems, cartItemToRemove) => {
   );
 };
 
+export const clearItemFromCart = (cartItems, cartItemToRemove) => {
+  let newCartItems;
+  let newCartTotalCost;
+  let newCartCount;
+
+  const existingCartItem = cartItems.find(
+    cartItem => cartItem.id === cartItemToRemove.id
+  );
+
+  newCartTotalCost = existingCartItem.quantity * existingCartItem.price;
+  newCartCount = existingCartItem.quantity
+
+  if (existingCartItem) {
+    newCartItems = cartItems.filter(cartItem => cartItem.id !== cartItemToRemove.id);
+  } else {
+    newCartItems = cartItems.map(cartItem =>
+      cartItem.id === cartItemToRemove.id
+        ? { ...cartItem, quantity: cartItem.quantity - cartItem.quantity}
+        : cartItem
+    );
+  }
+
+  return [newCartItems, newCartTotalCost, newCartCount];
+}
+
+
 export const filterItemFromCart = (cartItems, item) =>
   cartItems.filter(cartItem => cartItem.id !== item.id);
 
