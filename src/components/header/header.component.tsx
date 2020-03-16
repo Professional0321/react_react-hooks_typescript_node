@@ -20,7 +20,7 @@ const Header: React.FC = () => {
         <Link className="option" to="/shop">Shop</Link>
         <Link className="option" to="/shop">Contact</Link>
         <Link className="option" to="/signin">Sign In</Link>
-        <Link className="option" to="/">Cart</Link>
+        {/* <Link className="option" to="/">Cart</Link> */}
         <CartIcon/>
       </div>
       {hidden ? null : <CartDropdown/>}
