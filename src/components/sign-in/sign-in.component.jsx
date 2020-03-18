@@ -8,11 +8,10 @@ import { login } from '../../providers/current-user/session_api_util';
 
 import CurrentUserContext from '../../providers/current-user/current-.context';
 
-
 const SignIn = () => {
   const [userCredentials, setCredentials] = useState({ email: '', password: '' })
   const { email, password } = userCredentials
-  
+
   const handleSubmit = event => {
     event.preventDefault();
     const newUser = {email, password}
