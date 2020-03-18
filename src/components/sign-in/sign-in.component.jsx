@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './sign-in.styles.scss';
 
 import CustomButton from '../custom-button/custom-button.component';
@@ -9,66 +9,42 @@ import { login } from '../../providers/current-user/session_api_util';
 import CurrentUserContext from '../../providers/current-user/current-.context';
 
 
-class SignIn extends React.Component {
-  static contextType = CurrentUserContext;
-
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      email: '',
-      password: ''
-    }
-  }
-
-  handleSubmit = (event) => {
+const SignIn = () => {
+  const [userCredentials, setCredentials] = useState({ email: '', password: '' })
+  const { email, password } = userCredentials
+  
+  const handleSubmit = event => {
     event.preventDefault();
-    this.setState({
-      email: '',
-      password: ''
-    })
-
-    const newUser = {email: this.state.email, password: this.state.password}
+    const newUser = {email, password}
     login(newUser).then(user => console.log(user));
   }
 
-  handleChange = (event) => {
-    let target = event.target;
-    this.setState({
-      [target.name]: target.value
-    });
+  const handleChange = event => {
+    const { value, name } = event.target;
+    setCredentials({...userCredentials, [name]: value})
   }
 
-  // handleChange = (event: React.ChangeEvent): void => {
-  //   let target = event.target as HTMLInputElement;
-  //   this.setState({
-  //     [target.name]: target.value
-  //   } as any);
-  // }
- 
-  render() {
-    return (
-      <div className="sign-in">
-        <h2>I already have an account</h2>
-        <span>Sign in with your email and password</span>
-        <form onSubmit={(e) => this.handleSubmit(e)}>
-          <FormInput 
-            name={"email"} 
-            type={"email"} 
-            value={this.state.email} 
-            handleChange={() => this.handleChange}
-          />
-          <FormInput 
-            name={"password"} 
-            type={"password"} 
-            value={this.state.password} 
-            handleChange={() => this.handleChange}
-          />
-          <CustomButton type="submit">Sign In</CustomButton>
-        </form>
-      </div>
-    )
-  }
+  return (
+    <div className="sign-in">
+      <h2>I already have an account</h2>
+      <span>Sign in with your email and password</span>
+      <form onSubmit={(e) => handleSubmit(e)}>
+        <FormInput 
+          name={"email"} 
+          type={"email"} 
+          value={email} 
+          handleChange={() => handleChange}
+        />
+        <FormInput 
+          name={"password"} 
+          type={"password"} 
+          value={password} 
+          handleChange={() => handleChange}
+        />
+        <CustomButton type="submit">Sign In</CustomButton>
+      </form>
+    </div>
+  )
 }
 
 export default SignIn;
