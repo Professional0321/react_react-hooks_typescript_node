@@ -35,7 +35,7 @@ if (process.env.NODE_ENV === 'production') {
 app.use(express.json());
 app.use("/api/users", usersRoute)
 
-app.post('./payment', (req, res) => {
+app.post('/payment', (req, res) => {
   const body = {
     source: req.body.token.id,
     amount: req.body.amount,
@@ -44,7 +44,7 @@ app.post('./payment', (req, res) => {
 
   stripe.charges.create(body, (stripeErr, stripeRes) => {
     if (stripeErr) {
-      res.status(500).send({ error: stripeErr });
+      res.status(500).send({ error: stripeErr })
     } else {
       res.status(200).send({ success: stripeRes });
     }

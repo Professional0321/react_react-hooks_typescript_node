@@ -7,7 +7,7 @@ import { CartContext } from '../../providers/cart/cart.provider';
 
 
 const CartDropdown: React.FC<any> = ({ history }) => {
-  const { cartItems, toggleHidden } = useContext(CartContext);
+  const { cartItems } = useContext(CartContext);
   const showCartItems = () => {
     if (cartItems.length > 0) {
       return (

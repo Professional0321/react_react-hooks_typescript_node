@@ -4,9 +4,11 @@ import './checkout.styles.scss';
 
 import { CartContext } from '../../providers/cart/cart.provider';
 import CheckoutItem from '../../components/checkout-item/checkout-item.component';
+import StripeCheckOutButton from '../../components/stripe-button/stripe-button.component';
 
 const CheckoutPage = () => {
   const { cartItems, totalCost } = useContext(CartContext);
+
   return (
     <div className="checkout-page">
       <div className="checkout-header">
@@ -29,9 +31,13 @@ const CheckoutPage = () => {
       {cartItems.map(cartItem => (
         <CheckoutItem key={cartItem.id} cartItem={cartItem}></CheckoutItem>
       ))}
-      <div className="total">
-        <span>Total: ${totalCost} </span>
+      <div className="total"><span>Total: ${totalCost}</span></div>
+      <div className="test-warning">
+        *Please use the following test credit card for payments*
+        <br/>
+        4242 4242 4242 4242 - Exp: 01/25 - CVV: 123
       </div>
+        <StripeCheckOutButton price={totalCost}/>
     </div>
   )
 }

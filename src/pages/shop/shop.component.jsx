@@ -1,8 +1,8 @@
 import React from 'react';
 import { Route } from 'react-router-dom'; 
-import SHOP_DATA from '../../context/collections/shop.data';
+// import SHOP_DATA from '../../context/collections/shop.data';
 
-import CollectionPreview from '../../components/collection-preview/collection-preview.component';
+// import CollectionPreview from '../../components/collection-preview/collection-preview.component';
 import CollectionOverview from '../../components/collection-overview/collection-overview.component';
 import CollectionPage from '../collection/collection-page.component';
 
