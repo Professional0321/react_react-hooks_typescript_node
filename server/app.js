@@ -11,6 +11,7 @@ const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 const mongoose = require("mongoose");
 // const User = require('./models/user.model');
 const usersRoute = require("./routes/api/users.route");
+const collectionsRoute = require("./routes/api/collection.route");
 const db = require("./config/keys").mongoURI;
 
 const app = express();
@@ -34,6 +35,8 @@ if (process.env.NODE_ENV === 'production') {
 
 app.use(express.json());
 app.use("/api/users", usersRoute)
+
+app.use('/api/collections', collectionsRoute);
 
 app.post('/payment', (req, res) => {
   const body = {

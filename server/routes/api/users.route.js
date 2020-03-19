@@ -2,10 +2,17 @@ const express = require("express");
 const passport = require("passport");
 
 const UsersController = require("../../controllers/users.controller");
-
+const User = require('../../models/user.model');
 const router = express.Router();
 
 router.get("/test", (req, res) => res.json({ msg: "This is the users route for ecommerce" }));
+
+router.get("/test2", (req, res) => {
+  User.find()
+    .then(user => res.json(user))
+    .catch(err => res.status(404).json({error: "Cannot find user"}));
+})
+
 
 router.get("/current", passport.authenticate('jwt', { session: false }), (req, res) => {
   res.json({

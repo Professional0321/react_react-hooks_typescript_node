@@ -19,5 +19,5 @@ const CollectionSectionSchema = new mongoose.Schema({
   }
 });
 
-const CollectionSection = mongoose.model('CollectionSection', CollectionSectionSchema);
-exports.CollectionSection = CollectionSection;
+const CollectionSection = mongoose.model('sections', CollectionSectionSchema);
+module.exports = CollectionSection;

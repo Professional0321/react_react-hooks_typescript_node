@@ -3,6 +3,7 @@ import './directory.styles.scss';
 import MenuItem from '../menu-item/menu-item.component';
 
 import SECTIONS_DATA from '../../sections.data';
+import { getCollectionSections } from '../../context/collections/collection.utils';
 
 class Directory extends Component {
   constructor() {
@@ -10,6 +11,10 @@ class Directory extends Component {
     this.state = { 
       sections: SECTIONS_DATA
     }
+  }
+
+  componentDidMount() {
+    getCollectionSections().then(res => console.log(res));
   }
 
   render() {
