@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect } from 'react';
+import React, { createContext, useState } from 'react';
 
 import { login, signup } from './user.utils';
 
@@ -6,7 +6,8 @@ export const UserContext = createContext({
   loggedInStatus: false,
   changeLoginStatus: () => {},
   loginUser: (user) => {},
-  signupUser: (user) => {}
+  signupUser: (user) => {},
+  signoutUser: () => {}
 })
 
 const UserProvider = ({ children }) => {
@@ -14,6 +15,10 @@ const UserProvider = ({ children }) => {
 
   const changeLoginStatus = (status) => {
     setLoggedInStatus(status);
+  }
+
+  const signoutUser = () => {
+    setLoggedInStatus(false);
   }
 
   const loginUser = user => {
@@ -43,7 +48,8 @@ const UserProvider = ({ children }) => {
         loggedInStatus,
         changeLoginStatus,
         loginUser,
-        signupUser
+        signupUser,
+        signoutUser
       }}
     >
       { children }
