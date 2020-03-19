@@ -41,6 +41,7 @@ exports.signUpUser = (req, res) => {
             });
           })
         })
+        // res.status(200).send({ success: "User has been created!" });
       })
     }
   }).catch(error => console.log(error))
@@ -75,6 +76,7 @@ exports.loginUser = (req, res) => {
             });
           }
         )
+        // res.status(200).send({ success: "User has been logged in" });
       } else {
         return res.status(400).json({ password: 'Incorrect Password'})
       }

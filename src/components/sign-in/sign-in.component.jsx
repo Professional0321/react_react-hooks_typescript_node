@@ -1,21 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import './sign-in.styles.scss';
 
 import CustomButton from '../custom-button/custom-button.component';
 import FormInput from '../form-input/form-input.component';
 import User from '../../interface/user.interface';
-import { login } from '../../providers/current-user/session_api_util';
+// import { loginUser } from '../../providers/current-user/session_api_util';
 
-import CurrentUserContext from '../../providers/current-user/current-.context';
+import { UserContext } from '../../providers/user/user.provider';
+
+
 
 const SignIn = () => {
-  const [userCredentials, setCredentials] = useState({ email: '', password: '' })
+  const { loggedInStatus, loginUser } = useContext(UserContext);
+  const [ userCredentials, setCredentials ] = useState({ email: '', password: '' })
+
   const { email, password } = userCredentials
 
   const handleSubmit = event => {
     event.preventDefault();
-    const newUser = {email, password}
-    login(newUser).then(user => console.log(user));
+    const newUser = {email, password};
+    loginUser(newUser);
   }
 
   const handleChange = event => {

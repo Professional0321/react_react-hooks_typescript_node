@@ -1,13 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 
 import './sign-up.styles.scss';
 import CustomButton from '../custom-button/custom-button.component';
 import FormInput from '../form-input/form-input.component';
 import User from '../../interface/user.interface';
 
-import { signup } from '../../providers/current-user/session_api_util';
+import { UserContext } from '../../providers/user/user.provider';
+
+
+// import { signup } from '../../providers/current-user/session_api_util';
 
 const SignUp = () => {
+  const { loggedInStatus, signupUser } = useContext(UserContext);
   const [userCredentials, setUserCredentials] = useState({
     displayName: '',
     email: '',
@@ -17,20 +21,20 @@ const SignUp = () => {
 
   const { displayName, email, password, confirmPassword } = userCredentials;
 
-  const handleSubmit = async (event: React.FormEvent) => {
+  const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
 
     if (password !== confirmPassword) {
       alert("Password doesn't match!");
       return;
     }
-    const newUser = {
-      displayName,
-      email,
-      password,
-      confirmPassword
-    }
-    signup(newUser).then(newUser => console.log(newUser))
+    // const newUser = {
+    //   displayName: displayName,
+    //   email: email,
+    //   password: password,
+    //   confirmPassword: confirmPassword
+    // }
+    signupUser(userCredentials);
   }
 
   const handleChange = (event: React.FormEvent): void => {

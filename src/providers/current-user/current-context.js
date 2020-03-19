@@ -6,16 +6,16 @@ const UserProvider = ({ children }) => {
   const [user, setUser] = useState({user: {}});
   const [loggedIn, setLoggedIn] = useState(false);
 
-  const setCurrentUser = (user) => {
+  const setCurrentUser = user => {
     setUser({displayName: 'chris', email: 'chris510@gmail.com'});
     setLoggedIn(true);
   }
 
   const logout = () => {
     setUser(null);
-    setLoggedIn(false)
+    setLoggedIn(false);
   }
-  // console.log(user, loggedIn)
+
   return (
     <CurrentUserContext.Provider 
       value={{

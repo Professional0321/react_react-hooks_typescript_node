@@ -9,7 +9,7 @@ import Session from './pages/session/session.component';
 import CheckoutPage from './pages/checkout/checkout.component';
 
 // import CurrentUserContext from './context/current-user/current-user.context';
-import UserProvider from './providers/current-user/current-.context';
+import UserProvider from './providers/current-user/current-context';
 
 const App = () => {
   // const currentUser = { displayName: 'chris', loggedIn: true}
