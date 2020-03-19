@@ -4,6 +4,7 @@ import { login, signup } from './user.utils';
 
 export const UserContext = createContext({
   loggedInStatus: false,
+  changeLoginStatus: () => {},
   loginUser: (user) => {},
   signupUser: (user) => {}
 })
@@ -11,9 +12,13 @@ export const UserContext = createContext({
 const UserProvider = ({ children }) => {
   const [loggedInStatus, setLoggedInStatus] = useState(false);
 
+  const changeLoginStatus = (status) => {
+    setLoggedInStatus(status);
+  }
+
   const loginUser = user => {
     login(user).then(res => {
-      setLoggedInStatus(true);
+      changeLoginStatus(true)
       console.log(loggedInStatus)
       alert('User is logged in!');
     }).catch(err => {
@@ -26,7 +31,7 @@ const UserProvider = ({ children }) => {
     signup(user).then(res => {
       setLoggedInStatus(true);
       console.log(loggedInStatus);
-      alert('User has been signed up!!');
+      alert('User has been signed up!');
     }).catch(err => {
       alert("User cannot be created!")
     })
@@ -36,6 +41,7 @@ const UserProvider = ({ children }) => {
     <UserContext.Provider
       value={{
         loggedInStatus,
+        changeLoginStatus,
         loginUser,
         signupUser
       }}

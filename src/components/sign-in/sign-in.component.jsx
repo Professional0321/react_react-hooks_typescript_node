@@ -11,20 +11,65 @@ import { UserContext } from '../../providers/user/user.provider';
 
 
 const SignIn = () => {
-  const { loggedInStatus, loginUser } = useContext(UserContext);
-  const [ userCredentials, setCredentials ] = useState({ email: '', password: '' })
+  const { loggedInStatus, changeLoginStatus, loginUser } = useContext(UserContext);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  // const [userCredentials, setCredentials ] = useState({ email: '', password: '' })
+  let demoEmailCounter = 0;
+  let demoPasswordCounter = 0;
+  let demoEmailField = '';
+  let demoPasswordField = '';
 
-  const { email, password } = userCredentials
+  // const { email, password } = userCredentials
+
+  const resetCredentials = () => {
+    setEmail('');
+    setPassword('');
+  }
+
+  const handleDemoLogin = () => {
+    resetCredentials();
+    demoLogin();
+  }
+
+  const demoLogin = () => {
+    const demoEmail = "demo_user@gmail.com";
+    const demoPassword = "demouser123";
+    let typespeed = 100;
+    if (demoEmailCounter < demoEmail.length) {
+      demoEmailField = demoEmailField + demoEmail.charAt(demoEmailCounter);
+      setEmail(demoEmailField);
+      demoEmailCounter++;
+      setTimeout(demoLogin, typespeed);
+    } else if (demoPasswordCounter < demoPassword.length) {
+      demoPasswordField = demoPasswordField + demoPassword.charAt(demoPasswordCounter);
+      setPassword(demoPasswordField);
+      demoPasswordCounter++;
+      setTimeout(demoLogin, typespeed);
+    } else {
+      loginUser({ email: demoEmail, password: demoPassword });
+      console.log(email, password);
+      changeLoginStatus(true);
+      demoEmailCounter = 0;
+      demoPasswordCounter = 0;
+      demoEmailField = 0;
+      demoPasswordField = 0;
+    }
+  }
 
   const handleSubmit = event => {
     event.preventDefault();
-    const newUser = {email, password};
+    const newUser = { email, password };
     loginUser(newUser);
   }
 
   const handleChange = event => {
     const { value, name } = event.target;
-    setCredentials({...userCredentials, [name]: value})
+    if (name === "email") {
+      setEmail(value);
+    } else {
+      setPassword(value);
+    }
   }
 
   return (
@@ -44,7 +89,11 @@ const SignIn = () => {
           value={password} 
           handleChange={() => handleChange}
         />
-        <CustomButton type="submit">Sign In</CustomButton>
+        <div className="buttons">
+          <CustomButton type="submit">Sign In</CustomButton>
+          <button onClick={handleDemoLogin}>DEMO LOGIN></button>
+          <CustomButton type="button" onClick={() => handleDemoLogin}>Demo Login</CustomButton>
+        </div>
       </form>
     </div>
   )
