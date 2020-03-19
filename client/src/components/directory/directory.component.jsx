@@ -1,36 +1,38 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import './directory.styles.scss';
 import MenuItem from '../menu-item/menu-item.component';
 
-import SECTIONS_DATA from '../../sections.data';
-import { getCollectionSections } from '../../context/collections/collection.utils';
+import { CollectionContext } from '../../providers/collection/collection.provider';
 
-class Directory extends Component {
-  constructor() {
-    super()
-    this.state = { 
-      sections: SECTIONS_DATA
-    }
-  }
+const Directory = () => {
+  const { getSections, collectionSections } = useContext(CollectionContext);
 
-  componentDidMount() {
-    getCollectionSections().then(res => console.log(res));
-  }
-
-  render() {
-    return (
-      <div className="directory-menu">
-        {
-          this.state.sections.map(({ id, ...otherSectionProps }) => (
-            <MenuItem 
-              key={id}
-              {...otherSectionProps}
-            />
-          ))
-        }
-      </div> 
-    )
-  } 
+  useEffect(() => {
+    getSections();
+  }, [])
+  
+  return (
+    <div className="directory-menu">
+      {
+        collectionSections.map(({ id, ...otherSectionProps }, idx) => (
+          <MenuItem key={idx} {...otherSectionProps}/>
+        ))
+      }
+    </div> 
+  )
 }
+
+// class Directory extends Component {
+//   constructor() {
+//     super()
+//     this.state = { 
+//       sections: SECTIONS_DATA
+//     }
+//   }
+
+
+//   render() {
+//   } 
+// }
 
 export default Directory;

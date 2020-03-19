@@ -7,14 +7,17 @@ import App from './App';
 
 import CartProvider from './providers/cart/cart.provider';
 import UserProvider from './providers/user/user.provider';
+import CollectionProvider from './providers/collection/collection.provider';
 
 ReactDOM.render(
   <UserProvider>
-    <CartProvider>
-      <BrowserRouter>
-        <App/>
-      </BrowserRouter>
-    </CartProvider>
+    <CollectionProvider>
+      <CartProvider>
+        <BrowserRouter>
+          <App/>
+        </BrowserRouter>
+      </CartProvider>
+    </CollectionProvider>
   </UserProvider>,
   document.getElementById('root')
 );
