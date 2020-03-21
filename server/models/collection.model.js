@@ -1,7 +1,20 @@
 const mongoose = require('mongoose');
-const CollectionItem = require('./collection-item.model');
 
-const Collection = new mongoose.Schema({
+const CollectionItemSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: true
+  },
+  imageUrl: {
+    type: String,
+    required: true
+  },
+  price: {
+    type: Number,
+    required: true
+  }
+});
+const CollectionSchema = new mongoose.Schema({
   title: {
     type: String,
     required: true
@@ -10,7 +23,10 @@ const Collection = new mongoose.Schema({
     type: String,
     required: true
   },
-  items: [ CollectionItem ]
+  items: [ CollectionItemSchema ]
 });
 
-exports.Collection = Collection;
+
+
+const Collection = mongoose.model('collection', CollectionSchema);
+module.exports = Collection;

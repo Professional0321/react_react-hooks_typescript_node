@@ -23,7 +23,7 @@ mongoose
   .catch(err => console.error("Could not connect to MongoDB..."));
 
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json({limit: '50mb'}));
+app.use(bodyParser.json({ limit: '50mb' }));
 app.use(cors());
 
 if (process.env.NODE_ENV === 'production') {
@@ -35,7 +35,6 @@ if (process.env.NODE_ENV === 'production') {
 
 app.use(express.json());
 app.use("/api/users", usersRoute)
-
 app.use('/api/collections', collectionsRoute);
 
 app.post('/payment', (req, res) => {

@@ -2,12 +2,14 @@ import React, { useContext } from 'react';
 import './collection-page.styles.scss';
 
 import CollectionItem from '../../components/collection-item/collection-item.component';
-import CollectionContext from '../../context/collections/collections.context';
+
+import { CollectionContext } from '../../providers/collection/collection.provider';
 
 const CollectionPage = ({ match }) => {
-  const collections = useContext(CollectionContext)
-  const collection = collections[match.params.collectionId]
+  const { collectionItems } = useContext(CollectionContext)
+  const collection = collectionItems[match.params.collectionId]
   const { title, items } = collection;
+  console.log(collection)
   return ( 
     <div className="collection-page">
       <h1 className="title">{title.toUpperCase()}</h1>
