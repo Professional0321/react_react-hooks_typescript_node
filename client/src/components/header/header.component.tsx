@@ -4,6 +4,8 @@ import { ReactComponent as Logo } from '../../crown.svg';
 
 import './header.styles.scss';
 
+import { HeaderContainer, LogoContainer, OptionsContainer, OptionDiv, OptionLink} from './header.styles'
+
 import CartIcon from '../cart-icon/cart-icon.component';
 import CartDropdown from '../cart-dropdown/cart-dropdown.component';
 
@@ -16,27 +18,27 @@ const Header: React.FC = () => {
   const renderLoggedInStatus = () => {
     if (loggedInStatus === false) {
       return (
-        <Link className="option" to="/signin">Sign In</Link>
+        <OptionLink to="/signin">Sign In</OptionLink>
       )
     } else {
       return (
-        <div className="option" onClick={signoutUser}>Sign Out</div>
+        <OptionDiv onClick={signoutUser}>Sign Out</OptionDiv>
       )
     }
   }
   return (
-    <div className="header">
-      <Link className="logo-container" to="/">
+    <HeaderContainer>
+      <LogoContainer>
         <Logo/>
-      </Link>
-      <div className="options">
-        <Link className="option" to="/shop">Shop</Link>
-        <Link className="option" to="/shop">Contact</Link>
+      </LogoContainer>
+      <OptionsContainer>
+        <OptionLink to="/shop">Shop</OptionLink>
+        <OptionLink to="/shop">Contact</OptionLink>
         {renderLoggedInStatus()}
         <CartIcon/>
-      </div>
+      </OptionsContainer>
       {hidden ? null : <CartDropdown/>}
-    </div>
+    </HeaderContainer>
   )
 }
 

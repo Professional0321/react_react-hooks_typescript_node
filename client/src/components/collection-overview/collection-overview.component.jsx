@@ -4,13 +4,10 @@ import CollectionPreview from '../collection-preview/collection-preview.componen
 
 import './collection-overview.styles.scss';
 
-// import CollectionContext from '../../context/collections/collections.context';
 import { CollectionContext } from '../../providers/collection/collection.provider';
 
 const CollectionsOverview = ( ) => {
-  // const collections = Object.values(useContext(CollectionContext))
   const { getCollectionItems, collectionItems } = useContext(CollectionContext);
-
   useEffect(() => {
     getCollectionItems();
   }, [])

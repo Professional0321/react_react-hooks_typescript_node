@@ -5,7 +5,7 @@ import MenuItem from '../menu-item/menu-item.component';
 import { CollectionContext } from '../../providers/collection/collection.provider';
 
 const Directory = () => {
-  const { getSections, collectionSections, getCollectionItems } = useContext(CollectionContext);
+  const { getSections, collectionSections } = useContext(CollectionContext);
 
   useEffect(() => {
     getSections();
@@ -18,7 +18,6 @@ const Directory = () => {
           <MenuItem key={idx} {...otherSectionProps}/>
         ))
       }
-      <button onClick={getCollectionItems}>Create Collection</button>
     </div> 
   )
 }

@@ -4,23 +4,17 @@ import './sign-in.styles.scss';
 import CustomButton from '../custom-button/custom-button.component';
 import FormInput from '../form-input/form-input.component';
 import User from '../../interface/user.interface';
-// import { loginUser } from '../../providers/current-user/session_api_util';
 
 import { UserContext } from '../../providers/user/user.provider';
-
-
 
 const SignIn = () => {
   const { loggedInStatus, changeLoginStatus, loginUser } = useContext(UserContext);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  // const [userCredentials, setCredentials ] = useState({ email: '', password: '' })
   let demoEmailCounter = 0;
   let demoPasswordCounter = 0;
   let demoEmailField = '';
   let demoPasswordField = '';
-
-  // const { email, password } = userCredentials
 
   const resetCredentials = () => {
     setEmail('');

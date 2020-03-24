@@ -25,7 +25,8 @@
     "react-dom": "^16.13.0",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.0",
-    "react-stripe-checkout": "^2.6.3"
+    "react-stripe-checkout": "^2.6.3",
+    "styled-components": "^5.0.1"
   },
   "scripts": {
     "server": "nodemon app.js",
