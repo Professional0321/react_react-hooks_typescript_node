@@ -24,6 +24,8 @@ router.get('/collection', (req, res) => {
     })
 })
 
+router.get('./collection/:collectionId')
+
 // Create Collection Items
 // router.post('/collection', (req, res) => {
 //   const newCollection = new Collection({

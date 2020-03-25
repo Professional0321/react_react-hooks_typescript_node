@@ -8,9 +8,11 @@ import { CollectionContext } from '../../providers/collection/collection.provide
 
 const CollectionsOverview = ( ) => {
   const { getCollectionItems, collectionItems } = useContext(CollectionContext);
+
   useEffect(() => {
     getCollectionItems();
   }, [])
+  
   return (
     <div className='collections-overview'>
       {collectionItems.map(({ id, ...otherCollectionProps }, idx) => (

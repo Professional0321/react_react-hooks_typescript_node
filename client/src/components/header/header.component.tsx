@@ -25,7 +25,7 @@ const Header: React.FC = () => {
   }
   return (
     <HeaderContainer>
-      <LogoContainer>
+      <LogoContainer to='/'>
         <Logo/>
       </LogoContainer>
       <OptionsContainer>

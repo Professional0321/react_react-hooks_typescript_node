@@ -5,7 +5,6 @@ import { DirectoryContainer } from './directory.styles';
 
 import { CollectionContext } from '../../providers/collection/collection.provider';
 
-
 const Directory = () => {
   const { getSections, collectionSections } = useContext(CollectionContext);
 

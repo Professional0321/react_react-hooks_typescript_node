@@ -5,13 +5,16 @@ export const CollectionContext = createContext({
   getSections: () => {},
   getCollectionsItems: () => {},
   collectionSections: [],
-  collectionItems: []
+  collectionItems: [],
+  singleCollection: [],
+  getSingleCollection: () => {},
   // createCol: (collectionData) => {}
 })
 
 const CollectionProvider = ({ children }) => {
   const [collectionSections, setCollectionSections] = useState([]);
   const [collectionItems, setCollectionItems] = useState([]);
+  const [singleCollection, setSingleCollection] = useState({title: '', routeName: 'string', items: []});
 
   const getSections = () => {
     getCollectionSections()
@@ -22,6 +25,15 @@ const CollectionProvider = ({ children }) => {
   const getCollectionItems = () => {
     getCollections()
       .then(collections => setCollectionItems(collections.data))
+      .catch(error => console.log(error));
+  }
+
+  const getSingleCollection = (collectionTitle) => {
+    getCollections()
+      .then(collections => {
+        const foundCollection = collections.data.filter(collection => collection.title.toLowerCase() === collectionTitle);
+        setSingleCollection(foundCollection[0]);
+      })
       .catch(error => console.log(error));
   }
   
@@ -38,6 +50,8 @@ const CollectionProvider = ({ children }) => {
         getSections,
         collectionSections,
         getCollectionItems,
+        getSingleCollection,
+        singleCollection,
         collectionItems
       }}
     >
