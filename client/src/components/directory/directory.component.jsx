@@ -1,8 +1,10 @@
-import React, { useState, useEffect, useContext } from 'react';
-import './directory.styles.scss';
+import React, { useEffect, useContext } from 'react';
 import MenuItem from '../menu-item/menu-item.component';
 
+import { DirectoryContainer } from './directory.styles';
+
 import { CollectionContext } from '../../providers/collection/collection.provider';
+
 
 const Directory = () => {
   const { getSections, collectionSections } = useContext(CollectionContext);
@@ -12,13 +14,13 @@ const Directory = () => {
   }, [])
   
   return (
-    <div className="directory-menu">
+    <DirectoryContainer>
       {
         collectionSections.map(({ id, ...otherSectionProps }, idx) => (
           <MenuItem key={idx} {...otherSectionProps}/>
         ))
       }
-    </div> 
+    </DirectoryContainer>
   )
 }
 

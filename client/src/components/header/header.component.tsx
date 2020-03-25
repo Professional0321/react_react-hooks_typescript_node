@@ -1,10 +1,7 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
 import { ReactComponent as Logo } from '../../crown.svg';
 
-import './header.styles.scss';
-
-import { HeaderContainer, LogoContainer, OptionsContainer, OptionDiv, OptionLink} from './header.styles'
+import { HeaderContainer, LogoContainer, OptionsContainer, OptionLink} from './header.styles'
 
 import CartIcon from '../cart-icon/cart-icon.component';
 import CartDropdown from '../cart-dropdown/cart-dropdown.component';
@@ -22,7 +19,7 @@ const Header: React.FC = () => {
       )
     } else {
       return (
-        <OptionDiv onClick={signoutUser}>Sign Out</OptionDiv>
+        <OptionLink as='div' onClick={signoutUser}>Sign Out</OptionLink>
       )
     }
   }

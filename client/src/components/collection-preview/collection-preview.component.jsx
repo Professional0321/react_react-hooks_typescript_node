@@ -17,6 +17,7 @@ const CollectionPreview = ({ title, items }) => (
     </div>
   </div>
 );
+
 // const CollectionPreview = ({ match }) => {
 //   const collections = useContext(CollectionsContext)
 //   const collection = collections[match.params.collectionId]
