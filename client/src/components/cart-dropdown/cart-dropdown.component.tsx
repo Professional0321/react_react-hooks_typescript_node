@@ -1,8 +1,10 @@
 import React, { useContext } from 'react'
 import { withRouter } from 'react-router-dom';
-import './cart-dropdown.styles.scss';
+import { CartDropdownContainer, CartItemsContainer, EmptyMessageContainer } from './cart-dropdown';
+
 import CustomButton from '../custom-button/custom-button.component';
 import CartItem from '../cart-item/cart-item.component';
+
 import { CartContext } from '../../providers/cart/cart.provider';
 
 
@@ -10,24 +12,20 @@ const CartDropdown: React.FC<any> = ({ history }) => {
   const { cartItems } = useContext(CartContext);
   const showCartItems = () => {
     if (cartItems.length > 0) {
-      return (
-        cartItems.map(cartItem => (
-          <CartItem key={cartItem.id} item={cartItem}/>
-        ))
-      )
+      return (cartItems.map((cartItem, idx) => 
+        <CartItemsContainer key={idx}><CartItem key={idx} item={cartItem}/></CartItemsContainer>
+      ))
     } else {
       return (
-        <span className="empty-message">Your cart is empty</span>
+        <EmptyMessageContainer>Your cart is empty</EmptyMessageContainer>
       )
     }
   }
   return (
-    <div className="cart-dropdown">
-      <div className="cart-items">
-        {showCartItems()}
-      </div>
+    <CartDropdownContainer>
+      {showCartItems()}
       <CustomButton onClick={() => history.push('/checkout')}>GO TO CHECKOUT</CustomButton>
-    </div>
+    </CartDropdownContainer>
   )
 }
 

@@ -16,12 +16,12 @@ export const removeItemFromCount = (cartItemCount, number) => {
 
 export const addItemToCart = (cartItems, cartItemToAdd) => {
   const existingCartItem = cartItems.find(
-    cartItem => cartItem.id === cartItemToAdd.id
+    cartItem => cartItem.name === cartItemToAdd.name
   );
 
   if (existingCartItem) {
     return cartItems.map(cartItem =>
-      cartItem.id === cartItemToAdd.id
+      cartItem.name === cartItemToAdd.name
         ? { ...cartItem, quantity: cartItem.quantity + 1 }
         : cartItem
     );
@@ -32,22 +32,22 @@ export const addItemToCart = (cartItems, cartItemToAdd) => {
 
 export const removeItemFromCart = (cartItems, cartItemToRemove) => {
   const existingCartItem = cartItems.find(
-    cartItem => cartItem.id === cartItemToRemove.id
+    cartItem => cartItem.name === cartItemToRemove.name
   );
 
   if (existingCartItem.quantity === 1) {
-    return cartItems.filter(cartItem => cartItem.id !== cartItemToRemove.id);
+    return cartItems.filter(cartItem => cartItem.name !== cartItemToRemove.name);
   }
 
   return cartItems.map(cartItem =>
-    cartItem.id === cartItemToRemove.id
+    cartItem.name === cartItemToRemove.name
       ? { ...cartItem, quantity: cartItem.quantity - 1 }
       : cartItem
   );
 };
 
 export const filterItemFromCart = (cartItems, item) =>
-  cartItems.filter(cartItem => cartItem.id !== item.id);
+  cartItems.filter(cartItem => cartItem.name !== item.name);
 
 export const getCartItemsCount = cartItems =>
   cartItems.reduce(
@@ -68,17 +68,17 @@ export const getCartTotalCost = cartItems =>
 //   let newCartCount;
 
 //   const existingCartItem = cartItems.find(
-//     cartItem => cartItem.id === cartItemToRemove.id
+//     cartItem => cartItem.name === cartItemToRemove.name
 //   );
 
 //   newCartTotalCost = existingCartItem.quantity * existingCartItem.price;
 //   newCartCount = existingCartItem.quantity
 
 //   if (existingCartItem) {
-//     newCartItems = cartItems.filter(cartItem => cartItem.id !== cartItemToRemove.id);
+//     newCartItems = cartItems.filter(cartItem => cartItem.name !== cartItemToRemove.name);
 //   } else {
 //     newCartItems = cartItems.map(cartItem =>
-//       cartItem.id === cartItemToRemove.id
+//       cartItem.name === cartItemToRemove.name
 //         ? { ...cartItem, quantity: cartItem.quantity - cartItem.quantity}
 //         : cartItem
 //     );

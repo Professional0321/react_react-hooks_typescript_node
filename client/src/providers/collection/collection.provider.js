@@ -28,6 +28,7 @@ const CollectionProvider = ({ children }) => {
       .catch(error => console.log(error));
   }
 
+  // TODO: Create backend route to look for single collection instead of fetching all collections and filtering
   const getSingleCollection = (collectionTitle) => {
     getCollections()
       .then(collections => {

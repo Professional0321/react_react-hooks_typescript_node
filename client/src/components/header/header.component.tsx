@@ -12,6 +12,7 @@ import { UserContext } from '../../providers/user/user.provider';
 const Header: React.FC = () => {
   const { hidden } = useContext(CartContext);
   const { loggedInStatus, signoutUser }  = useContext(UserContext);
+  
   const renderLoggedInStatus = () => {
     if (loggedInStatus === false) {
       return (
