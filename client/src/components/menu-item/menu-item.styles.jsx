@@ -8,7 +8,7 @@ export const MenuItemContainer = styled.div`
   align-items: center;
   justify-content: center;
   border: 1px solid black;
-  margin: 0 0.75rem 1.5rem;
+  margin: 0 7.5px 15px;
   overflow: hidden;
 
   &:hover {
@@ -31,6 +31,10 @@ export const MenuItemContainer = styled.div`
   &:last-child {
     margin-left: 0.75rem;
   }
+
+  @media screen and (max-width: 800px) {
+    height: 200px;
+  }
 `
 
 export const BackgroundImageContainer = styled.div`
@@ -42,8 +46,8 @@ export const BackgroundImageContainer = styled.div`
 `
 
 export const ContentContainer = styled.div`
-  height: 8rem;
-  padding: 2rem 4rem;
+  height: 90px;
+  padding: 0 25px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -57,11 +61,11 @@ export const ContentContainer = styled.div`
 export const ContentTitle = styled.h1`
   font-weight: bold;
   margin-bottom: 6px;
-  font-size: 3.2rem;
+  font-size: 22px;
   color: #4a4a4a;
 `
 
 export const ContentSubtitle = styled.span`
   font-weight: lighter;
-  font-size: 1.7rem;
+  font-size: 16px;
 `

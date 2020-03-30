@@ -14,11 +14,9 @@ const Directory = () => {
   
   return (
     <DirectoryContainer>
-      {
-        collectionSections.map(({ id, ...otherSectionProps }, idx) => (
-          <MenuItem key={idx} {...otherSectionProps}/>
-        ))
-      }
+      {collectionSections.map(({ id, ...otherSectionProps }, idx) => (
+        <MenuItem key={idx} {...otherSectionProps}/>
+      ))}
     </DirectoryContainer>
   )
 }

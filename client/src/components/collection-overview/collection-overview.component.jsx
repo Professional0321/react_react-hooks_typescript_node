@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from 'react';
 
 import CollectionPreview from '../collection-preview/collection-preview.component';
 
-import './collection-overview.styles.scss';
+import { CollectionOverviewContainer } from './collection-overview.styles';
 
 import { CollectionContext } from '../../providers/collection/collection.provider';
 
@@ -14,11 +14,11 @@ const CollectionsOverview = ( ) => {
   }, [])
   
   return (
-    <div className='collections-overview'>
+    <CollectionOverviewContainer>
       {collectionItems.map(({ id, ...otherCollectionProps }, idx) => (
         <CollectionPreview key={idx} {...otherCollectionProps} />
       ))}
-    </div>
+    </CollectionOverviewContainer>
   )
 };
 

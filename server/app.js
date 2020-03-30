@@ -2,6 +2,7 @@ const express = require("express");
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const path = require('path');
+const compression = require('compression');
 
 if (process.env.NODE_ENV !== 'production') require('dotenv').config();
 
@@ -22,6 +23,7 @@ mongoose
   .then(() => console.log("Connected to MongoDB..."))
   .catch(err => console.error("Could not connect to MongoDB..."));
 
+app.use(compression());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json({ limit: '50mb' }));
 app.use(cors());

@@ -1,12 +1,11 @@
 import React, { useContext } from 'react'
 import { withRouter } from 'react-router-dom';
-import { CartDropdownContainer, CartItemsContainer, EmptyMessageContainer } from './cart-dropdown';
+import { CartDropdownContainer, CartItemsContainer, EmptyMessageContainer } from './cart-dropdown.styles';
 
 import CustomButton from '../custom-button/custom-button.component';
 import CartItem from '../cart-item/cart-item.component';
 
 import { CartContext } from '../../providers/cart/cart.provider';
-
 
 const CartDropdown: React.FC<any> = ({ history }) => {
   const { cartItems } = useContext(CartContext);
