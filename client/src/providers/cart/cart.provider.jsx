@@ -1,4 +1,4 @@
-import React, { createContext , useState, useEffect } from 'react';
+import React, { createContext , useState, useEffect, useCallback } from 'react';
 
 import { 
   addItemToCart, 
@@ -29,21 +29,21 @@ const CartProvider = ({ children }) => {
   const [cartItemsCount, setCartItemsCount] = useState(0);
   const [totalCost, setTotalCost] = useState(0)
 
-  const toggleHidden = () => setHidden(!hidden);
+  const toggleHidden = useCallback(() => setHidden(!hidden));
 
-  const addItem = item => {
+  const addItem = useCallback(item => {
     setCartItems(addItemToCart(cartItems, item));
     setTotalCost(addPriceToTotal(totalCost, item.price));
     setCartItemsCount(addItemToCount(cartItemsCount, 1));
-  };
+  });
 
-  const removeItem = item => {
+  const removeItem = useCallback(item => {
     setCartItems(removeItemFromCart(cartItems, item));
     setTotalCost(removePriceFromTotal(totalCost, item.price));
     setCartItemsCount(removeItemFromCount(cartItemsCount, 1));
-  };
+  });
 
-  const clearCartItem = item => setCartItems(filterItemFromCart(cartItems, item));
+  const clearCartItem = useCallback(item => setCartItems(filterItemFromCart(cartItems, item)));
 
   useEffect(() => {
     setTotalCost(getCartTotalCost(cartItems));

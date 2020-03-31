@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState, useCallback } from 'react';
 
 import { login, signup } from './user.utils';
 
@@ -13,13 +13,13 @@ export const UserContext = createContext({
 const UserProvider = ({ children }) => {
   const [loggedInStatus, setLoggedInStatus] = useState(false);
 
-  const changeLoginStatus = (status) => {
+  const changeLoginStatus = useCallback((status) => {
     setLoggedInStatus(status);
-  }
+  })
 
-  const signoutUser = () => {
+  const signoutUser = useCallback(() => {
     setLoggedInStatus(false);
-  }
+  })
 
   const loginUser = user => {
     login(user).then(res => {
