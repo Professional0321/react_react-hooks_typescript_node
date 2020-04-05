@@ -85,8 +85,7 @@ const SignIn = () => {
         />
         <div className="buttons">
           <CustomButton type="submit">Sign In</CustomButton>
-          <button onClick={handleDemoLogin}>DEMO LOGIN></button>
-          <CustomButton type="button" onClick={() => handleDemoLogin}>Demo Login</CustomButton>
+          <CustomButton type="button" onClick={handleDemoLogin}>Demo Login</CustomButton>
         </div>
       </form>
     </div>

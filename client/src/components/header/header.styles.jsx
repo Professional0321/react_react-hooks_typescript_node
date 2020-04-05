@@ -6,18 +6,17 @@ export const HeaderContainer = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  margin-bottom: 2.5rem;
   @media screen and (max-width: 800px) {
       height: 6rem;
       padding: 1rem;
-      margin-bottom: 0;
+      ${'' /* margin-bottom: 0; */}
     }
 `
 
 export const LogoContainer = styled(Link)`
   height: 100%;
   width: 7rem;
-  padding: 2.5rem;
+  padding: 1.5rem;
 
   @media screen and (max-width: 800px) {
     width: 5rem;
@@ -32,6 +31,7 @@ export const OptionsContainer = styled.div`
   align-items: center;
   justify-content: flex-end;
   transition: .5s all ease-in;
+  cursor: pointer;
 
   @media screen and (max-width: 800px) {
     width: 80%;
