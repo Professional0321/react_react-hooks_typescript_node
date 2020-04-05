@@ -1,0 +1,31 @@
+.splash {
+  height: 100vh;
+
+  .main-1 {
+    height: 100%;
+    background-image: url("../../images/background-1.jpg");
+    background-size: cover;
+    background-size: 100% 100%;
+    opacity: 0.85;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    h1 {
+      height: 200px;
+      width: 500px;
+      font-size: 22px;
+      color: white;
+      background-color: black;
+      opacity: 0.5;
+    }
+  }
+
+  .main-2 {
+    height: 100%;
+    background-image: url("../../images/background-3.jpg");
+    background-color: cover;
+    background-size: 100% 100%;
+    opacity: 0.85;
+  }
+}
