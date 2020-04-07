@@ -2,8 +2,11 @@ import React from 'react';
 import './splash.styles.scss'
 
 import Skate from '../../images/background-1.jpg'
-import PalmTrees from '../../images/background-2.jpg'
+// import PalmTrees from '../../images/background-2.jpg'
 import Footer from '../footer/footer.component';
+
+import { ReactComponent as Logo } from '../../crown.svg';
+import PalmTrees from '../../crown.svg';
 
 import Street1 from '../../images/street-clothing-1.jpg';
 import Street2 from '../../images/street-clothing-2.jpg';
@@ -13,14 +16,13 @@ const Splash = () => {
   return (
     <div className="splash">
       <section className="header">
-        {/* <h1 className="text-box">
-          <span>Palm Clothing</span>
-          <span>Is Where Life Happens</span>
-        </h1> */}
+        <div className="logo-box">
+          <img src={PalmTrees} alt="Palm Tree Logo" className="logo-image"></img>
+        </div>
         <div className="text-box">
           <h1 className="heading-primary">
-              <span className="heading-primary--main">Palm Clothing</span>
-              <span className="heading-primary--sub">is where life happens</span>
+              <span className="heading-primary--main">Palms</span>
+              <span className="heading-primary--sub">where life happens</span>
           </h1>
           <a href="#" className="btn btn--white btn--animated">Enter the Store</a>
         </div>
