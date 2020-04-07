@@ -6,8 +6,8 @@ export const HeaderContainer = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  margin-bottom: 10px;
   position: relative;
+
   @media screen and (max-width: 800px) {
       height: 6rem;
       padding: 1rem;

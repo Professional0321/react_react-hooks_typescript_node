@@ -5,7 +5,7 @@ export const GlobalStyle = createGlobalStyle`
     /* height: 100vh; */
     /* text-align: center; */
     font-family: 'Open Sans Condensed';
-    padding: 2rem 6rem;
+    ${'' /* padding: 2rem 6rem; */}
 
     @media screen and (max-width: 800px) {
       padding: 1rem;
