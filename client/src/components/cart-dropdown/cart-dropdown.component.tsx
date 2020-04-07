@@ -12,7 +12,7 @@ const CartDropdown: React.FC<any> = ({ history }) => {
   const showCartItems = () => {
     if (cartItems.length > 0) {
       return (cartItems.map((cartItem, idx) => 
-        <CartItemsContainer key={idx}><CartItem key={idx} item={cartItem}/></CartItemsContainer>
+        <CartItem key={idx} item={cartItem}/>
       ))
     } else {
       return (
@@ -22,7 +22,9 @@ const CartDropdown: React.FC<any> = ({ history }) => {
   }
   return (
     <CartDropdownContainer>
-      {showCartItems()}
+      <CartItemsContainer>
+        {showCartItems()}
+      </CartItemsContainer>
       <CustomButton onClick={() => history.push('/checkout')}>GO TO CHECKOUT</CustomButton>
     </CartDropdownContainer>
   )

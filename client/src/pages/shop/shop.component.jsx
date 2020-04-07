@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route } from 'react-router-dom'; 
+import './shop.styles.scss';
 // import SHOP_DATA from '../../context/collections/shop.data';
 
 // import CollectionPreview from '../../components/collection-preview/collection-preview.component';

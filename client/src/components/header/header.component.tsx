@@ -1,5 +1,8 @@
 import React, { useContext } from 'react';
 import { ReactComponent as Logo } from '../../palms.svg';
+import PalmTrees from '../../palms.svg';
+
+import './header.styles.scss';
 
 import { HeaderContainer, LogoContainer, OptionsContainer, OptionLink} from './header.styles'
 

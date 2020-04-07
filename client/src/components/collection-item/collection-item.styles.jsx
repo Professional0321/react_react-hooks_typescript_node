@@ -23,7 +23,7 @@ export const CollectionItemContainer = styled.div`
   }
 `
 export const BackgroundImage = styled.div`
-  width: 100%;
+  width: 95%;
   height: 95%;
   background-size: cover;
   background-position: center;
@@ -32,7 +32,7 @@ export const BackgroundImage = styled.div`
 `
 
 export const AddButton = styled(CustomButton)`
-  width: 80%;
+  width: 65%;
   opacity: 0.7;
   font-size: 2rem;
   justify-content: center;
@@ -42,18 +42,18 @@ export const AddButton = styled(CustomButton)`
 `
 
 export const CollectionFooterContainer = styled.div`
-  width: 100%;
+  width: 90%;
   height: 5%;
   display: flex;
   justify-content: space-between;
   font-size: 1.8rem;
 `
 export const NameContainer = styled.span`
-  width: 90%;
+  width: 85%;
   margin-bottom: 15px;
 `
 
 export const PriceContainer = styled.span`
-  width: 90%;
+  width: 10%;
   margin-bottom: 15px;
 `

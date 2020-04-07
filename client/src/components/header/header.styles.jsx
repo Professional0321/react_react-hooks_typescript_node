@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 export const HeaderContainer = styled.div`
   height: 7rem;
   width: 100%;
-  margin-bottom: 15px;
+  margin-bottom: 30px;
   display: flex;
   justify-content: space-between;
   position: relative;
@@ -28,8 +28,8 @@ export const LogoContainer = styled(Link)`
 
 export const OptionsContainer = styled.div`
   position: absolute;
-  right: 10px;
-  height: 100%;
+  right: 25px;
+  height: 115%;
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
