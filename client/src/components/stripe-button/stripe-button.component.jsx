@@ -36,7 +36,6 @@ const StripeCheckOutButton = ({ price }) => {
       stripeKey={key}
     />
   )
-  
 }
 
 export default StripeCheckOutButton;

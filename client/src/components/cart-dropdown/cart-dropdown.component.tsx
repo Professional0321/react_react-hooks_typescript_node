@@ -1,17 +1,20 @@
 import React, { useContext } from 'react'
-import { withRouter } from 'react-router-dom';
+import { withRouter, RouteComponentProps } from 'react-router-dom';
 import { CartDropdownContainer, CartItemsContainer, EmptyMessageContainer } from './cart-dropdown.styles';
 
 import CustomButton from '../custom-button/custom-button.component';
 import CartItem from '../cart-item/cart-item.component';
 
 import { CartContext } from '../../providers/cart/cart.provider';
+import ShopItem from '../../interface/shop-item.interface';
 
-const CartDropdown: React.FC<any> = ({ history }) => {
+interface IProps extends RouteComponentProps<any> {}
+
+const CartDropdown: React.FC<IProps> = ({ history }) => {
   const { cartItems } = useContext(CartContext);
   const showCartItems = () => {
     if (cartItems.length > 0) {
-      return (cartItems.map((cartItem, idx) => 
+      (cartItems as []).map((cartItem: any, idx: number) => (
         <CartItem key={idx} item={cartItem}/>
       ))
     } else {

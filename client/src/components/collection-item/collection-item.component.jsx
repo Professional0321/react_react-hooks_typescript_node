@@ -11,7 +11,6 @@ import {
   PriceContainer
 } from './collection-item.styles';
 
-import CustomButton from '../custom-button/custom-button.component';
 import { CartContext } from '../../providers/cart/cart.provider';
 
 const CollectionItem = ({ item }) => {

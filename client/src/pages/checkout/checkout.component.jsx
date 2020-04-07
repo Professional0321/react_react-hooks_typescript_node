@@ -28,8 +28,8 @@ const CheckoutPage = () => {
           <span>Remove</span>
         </div>
       </div>
-      {cartItems.map(cartItem => (
-        <CheckoutItem key={cartItem.id} cartItem={cartItem}></CheckoutItem>
+      {cartItems.map((cartItem, idx) => (
+        <CheckoutItem key={idx} cartItem={cartItem}></CheckoutItem>
       ))}
       <div className="total"><span>Total: ${totalCost}</span></div>
       <div className="test-warning">

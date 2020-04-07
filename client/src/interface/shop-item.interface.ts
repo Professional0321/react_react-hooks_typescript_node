@@ -2,7 +2,8 @@ interface ShopItem {
   id: number,
   name: string,
   imageUrl: string,
-  price: number
+  price: number,
+  quantity?: number
 }
 
 export default ShopItem;
