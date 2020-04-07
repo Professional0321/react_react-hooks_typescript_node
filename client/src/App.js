@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom'; 
+import { Route, Switch, withRouter } from 'react-router-dom'; 
 import { GlobalStyle } from './global.styles';
 
 import Header from './components/header/header.component';
@@ -10,13 +10,14 @@ import CheckoutPage from './pages/checkout/checkout.component';
 import Splash from './components/splash/splash.component';
 import Footer from './components/footer/footer.component';
 
-const App = () => {
+const App = ({ location }) => {
+  const {pathname} = location;
   return (
       <div className="app">
         <GlobalStyle/>
+          {pathname !== "/" ? <Header/> : null}
         <Switch>
-          <Route exact path="/splash" component={Splash}/>
-          <Route path="/" component={Header}/>
+          <Route exact path="/" component={Splash}/>
           <Route exact path="/home" component={HomePage}/>
           <Route path="/shop" component={ShopPage}/>
           <Route path="/signin" component={Session}/>
@@ -26,4 +27,4 @@ const App = () => {
   )
 }
 
-export default App;
+export default withRouter(App);

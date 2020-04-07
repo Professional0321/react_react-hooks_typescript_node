@@ -1,12 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './splash.styles.scss'
 
-import Skate from '../../images/background-1.jpg'
-// import PalmTrees from '../../images/background-2.jpg'
 import Footer from '../footer/footer.component';
-
-import { ReactComponent as Logo } from '../../crown.svg';
-import PalmTrees from '../../crown.svg';
+import PalmTrees from '../../palms.svg';
 
 import Street1 from '../../images/street-clothing-1.jpg';
 import Street2 from '../../images/street-clothing-2.jpg';
@@ -24,7 +21,8 @@ const Splash = () => {
               <span className="heading-primary--main">Palms</span>
               <span className="heading-primary--sub">where life happens</span>
           </h1>
-          <a href="#" className="btn btn--white btn--animated">Enter the Store</a>
+          <Link to="/home" className="btn btn--white btn--animated">Enter the Store</Link>
+          {/* <a href="#" className="btn btn--white btn--animated">Enter the Store</a> */}
         </div>
       </section>
       <section className="about">
@@ -43,7 +41,8 @@ const Splash = () => {
             <p className="paragraph">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure qui earum suscipit assumenda. Possimus atque labore nesciunt voluptas.
             </p>
-            <a href="#" className="btn-text">Enter the Store &rarr;</a>
+            <Link to="/home" className="btn-text">Enter the Store &rarr;</Link>
+            {/* <a href="#" className="btn-text">Enter the Store &rarr;</a> */}
           </div>
           <div className="col-1-of-2">
             <div className="composition">
@@ -55,31 +54,31 @@ const Splash = () => {
         </div>
       </section>
       <section className="main-2">
-        <div class="feature-box">
-            <i class="feature-box__icon icon-basic-world"></i>
-            <h3 class="heading-tertiary u-margin-bottom-small">Express yourself</h3>
-            <p class="feature-box__test">
+        <div className="feature-box">
+            <i className="feature-box__icon icon-basic-world"></i>
+            <h3 className="heading-tertiary u-margin-bottom-small">Express yourself</h3>
+            <p className="feature-box__test">
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi suscipit fugit ab doloribus nulla repudiandae iusto dolores officia.
             </p>
         </div>
-        <div class="feature-box">
-            <i class="feature-box__icon icon-basic-compass"></i>
-            <h3 class="heading-tertiary u-margin-bottom-small">Uniquely You</h3>
-            <p class="feature-box__test">
+        <div className="feature-box">
+            <i className="feature-box__icon icon-basic-compass"></i>
+            <h3 className="heading-tertiary">Uniquely You</h3>
+            <p className="feature-box__test">
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi suscipit fugit ab doloribus nulla repudiandae iusto dolores officia.
             </p>
         </div>
-        <div class="feature-box">
-            <i class="feature-box__icon icon-basic-map"></i>
-            <h3 class="heading-tertiary u-margin-bottom-small">Find your way</h3>
-            <p class="feature-box__test">
+        <div className="feature-box">
+            <i className="feature-box__icon icon-basic-map"></i>
+            <h3 className="heading-tertiary">Find your way</h3>
+            <p className="feature-box__test">
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi suscipit fugit ab doloribus nulla repudiandae iusto dolores officia.
             </p>
         </div>
-        <div class="feature-box">
-            <i class="feature-box__icon icon-basic-clockwise"></i>
-            <h3 class="heading-tertiary u-margin-bottom-small">Refine your image</h3>
-            <p class="feature-box__test">
+        <div className="feature-box">
+            <i className="feature-box__icon icon-basic-clockwise"></i>
+            <h3 className="heading-tertiary">Refine your image</h3>
+            <p className="feature-box__test">
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi suscipit fugit ab doloribus nulla repudiandae iusto dolores officia.
             </p>
         </div>
