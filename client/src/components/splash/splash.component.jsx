@@ -29,17 +29,17 @@ const Splash = () => {
       </section>
       <section className="about">
         <div className="about-header">
-          <h3 className="header-secondary">
-            Matching style and class with luxury and comfort.
+          <h3 className="heading-secondary">
+            True style never dies
           </h3>
         </div>
         <div className="row">
           <div className="col-1-of-2">
-            <h3 className="heading-tertiary u-margin-bottom-small"> Matching style and class with luxury and comfort.</h3>
+            <h3 className="heading-tertiary u-margin-bottom-small">Matching style and class with luxury and comfort</h3>
             <p className="paragraph">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure qui earum suscipit assumenda. Possimus atque labore nesciunt voluptas, vero doloribus officia exercitationem necessitatibus, mollitia, facere eius! Aliquid deserunt vel doloribus.
             </p>
-            <h3 className="heading-tertiary u-margin-bottom-small">Live adventures like you never have before</h3>
+            <h3 className="heading-tertiary u-margin-bottom-small">Expect more from your clothes</h3>
             <p className="paragraph">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure qui earum suscipit assumenda. Possimus atque labore nesciunt voluptas.
             </p>
@@ -54,11 +54,39 @@ const Splash = () => {
           </div>
         </div>
       </section>
-      {/* <section className="main-2">
-        <div className="main-2 title">
-          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+      <section className="main-2">
+        <div class="feature-box">
+            <i class="feature-box__icon icon-basic-world"></i>
+            <h3 class="heading-tertiary u-margin-bottom-small">Express yourself</h3>
+            <p class="feature-box__test">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi suscipit fugit ab doloribus nulla repudiandae iusto dolores officia.
+            </p>
         </div>
-      </section> */}
+        <div class="feature-box">
+            <i class="feature-box__icon icon-basic-compass"></i>
+            <h3 class="heading-tertiary u-margin-bottom-small">Uniquely You</h3>
+            <p class="feature-box__test">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi suscipit fugit ab doloribus nulla repudiandae iusto dolores officia.
+            </p>
+        </div>
+        <div class="feature-box">
+            <i class="feature-box__icon icon-basic-map"></i>
+            <h3 class="heading-tertiary u-margin-bottom-small">Find your way</h3>
+            <p class="feature-box__test">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi suscipit fugit ab doloribus nulla repudiandae iusto dolores officia.
+            </p>
+        </div>
+        <div class="feature-box">
+            <i class="feature-box__icon icon-basic-clockwise"></i>
+            <h3 class="heading-tertiary u-margin-bottom-small">Refine your image</h3>
+            <p class="feature-box__test">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi suscipit fugit ab doloribus nulla repudiandae iusto dolores officia.
+            </p>
+        </div>
+        <div className="main-2 title">
+          {/* Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. */}
+        </div>
+      </section>
       {/* <Footer/> */}
     </div>
   )

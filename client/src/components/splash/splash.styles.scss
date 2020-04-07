@@ -36,27 +36,25 @@
       transform: translate(-50%, -50%);
       text-align: center;
     }
-
-    // h1 span {
-    //   text-transform: uppercase;
-    //   font-size: 22px;
-    //   color: $color-white;
-    //   background-color: $color-black;
-    //   opacity: 0.5;
-    // }
   }
 
   .about {
     background-color: $color-grey-light-1;
-    padding: 25rem 0;
-    margin-top: -20vh;
+    padding: 15rem 0;
+    margin-top: -18vh;
     height: 100%;
+
+    .about-header {
+      margin-bottom: 8rem;
+      text-align: center;
+    }
+    
 
     .composition {
       position: relative;
 
       .street-photo {
-        width: 55%;
+        width: 45%;
         box-shadow: 0 1.5rem 4rem rgba($color-black, .4);
         border-radius: 2px;
         position: absolute;
@@ -75,28 +73,65 @@
 
       .p1 {
         left: 0;
-        top: -2rem;
+        top: -4rem;
       }
 
       .p2 {
-        right: 0;
-        top: 2rem;
+        right: 10rem;
+        top: 0rem;
       }
 
       .p3 {
         left: 20%;
-        top: 10rem;
+        top: 7rem;
       }
 
     }
-
   }
 
   .main-2 {
-    // height: 100%;
-    // background-image: url("../../images/background-3.jpg");
-    // background-color: cover;
-    // background-size: 100% 100%;
-    // opacity: 0.85;
+    height: 110%;
+    background-image: url("../../images/background-4.jpg");
+    clip-path: polygon(0 25vh, 100% 5%, 100% 100%, 0 100%);
+    background-size: cover;
+    opacity: 0.85;
+    margin-top: -25vh;
+    display: flex;
+    justify-content: space-evenly;
+
+
+    .feature-box {
+      width: 20%;
+      height: 30%;
+      background-color: rgba(255, 255, 255, 0.9);
+      font-size: 1.5rem;
+      padding: 2.5rem;
+      text-align: center;
+      border-radius: 3px;
+      box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+      transition: transform .3s;
+      margin-top: 47.5rem;
+    
+      // @include respond(tab-port) {
+      //   padding: 2rem;
+      // }
+    
+      &__icon {
+        font-size: 6rem;
+        margin-bottom: .5rem;
+        display: inline-block;
+        background-image: linear-gradient(to right, rgba(74, 74, 74, 0.6), rgba(0, 0, 0, 0.8));
+        -webkit-background-clip: text;
+        color: transparent;
+    
+        // @include respond(tab-port) {
+        //   margin-bottom: 0;
+        // }
+      }
+    
+      &:hover {
+        transform: translateY(-1.5rem) scale(1.03);
+      }
+    }
   }
 }
