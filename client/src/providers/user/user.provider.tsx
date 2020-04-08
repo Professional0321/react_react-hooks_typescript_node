@@ -33,6 +33,7 @@ const UserProvider: React.FC<IUserProps> = ({ children }) => {
 
   const signoutUser = (): void => {
     setLoggedInStatus(false);
+    alert('You have signed out!');
   }
 
   const loginUser = (user: User) => {

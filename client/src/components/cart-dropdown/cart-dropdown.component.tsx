@@ -8,9 +8,9 @@ import CartItem from '../cart-item/cart-item.component';
 import { CartContext } from '../../providers/cart/cart.provider';
 import ShopItem from '../../interface/shop-item.interface';
 
-interface IProps extends RouteComponentProps<any> {}
+interface ICartDropdownProps extends RouteComponentProps<any> {}
 
-const CartDropdown: React.FC<IProps> = ({ history }) => {
+const CartDropdown: React.FC<ICartDropdownProps> = ({ history }) => {
   const { cartItems } = useContext(CartContext);
   const showCartItems = () => {
     if (cartItems.length > 0) {

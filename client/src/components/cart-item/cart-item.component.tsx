@@ -1,6 +1,5 @@
 import React from 'react';
 import { CartItemContainer, ImageContainer, ItemDetailsContainer } from './cart-item.styles';
-
 interface ICartItemProps {
   item: {
     imageUrl: string,

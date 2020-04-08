@@ -15,7 +15,7 @@ const CheckoutItem: React.FC<ICheckoutItemProps> = ({ cartItem }) => {
   return (
     <CheckoutItemContainer>
       <ImageContainer>
-        <img src={imageUrl} alt="item"></img>
+        <img src={imageUrl} alt="item"/>
       </ImageContainer>
       <TextContainer>{name}</TextContainer>
       <QuantityContainer>

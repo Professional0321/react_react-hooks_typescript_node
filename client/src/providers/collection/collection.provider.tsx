@@ -43,7 +43,6 @@ const CollectionProvider: React.FC<ICartProps> = ({ children }) => {
       .then(sections => {
         setCollectionSections(sections.data);
         console.log(sections);
-        console.log('111111111111')
       })
       .catch(error => console.log(error));
   }
@@ -53,7 +52,6 @@ const CollectionProvider: React.FC<ICartProps> = ({ children }) => {
       .then(collections => {
         setCollectionItems(collections.data);
         console.log(collections);
-        console.log('22222222222')
       })
       .catch(error => console.log(error));
   }

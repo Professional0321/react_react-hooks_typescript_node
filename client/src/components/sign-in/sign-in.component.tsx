@@ -7,14 +7,20 @@ import User from '../../interface/user.interface';
 
 import { UserContext } from '../../providers/user/user.provider';
 
-const SignIn = () => {
+interface ISignInProps {}
+
+const SignIn: React.FC<ISignInProps> = () => {
   const { loggedInStatus, changeLoginStatus, loginUser } = useContext(UserContext);
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  let demoEmailCounter = 0;
-  let demoPasswordCounter = 0;
-  let demoEmailField = '';
-  let demoPasswordField = '';
+  const [email, setEmail] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
+  // const [demoEmailCounter, setDemoEmailCounter] = useState<number>(0);
+  // const [demoPasswordCounter, setDemoPasswordCounter] = useState<number>(0);
+  // const [demoEmailField, setDemoEmailField] = useState<string>('');
+  // const [demoPasswordField, setDemoPasswordField] = useState<string>('');
+  let demoEmailCounter: number = 0;
+  let demoPasswordCounter: number = 0;
+  let demoEmailField: string = '';
+  let demoPasswordField: string = '';
 
   const resetCredentials = () => {
     setEmail('');
@@ -26,38 +32,48 @@ const SignIn = () => {
     demoLogin();
   }
 
+  // Shows demo login thrugh rerender of characters
   const demoLogin = () => {
     const demoEmail = "demo_user@gmail.com";
     const demoPassword = "demouser123";
     let typespeed = 100;
     if (demoEmailCounter < demoEmail.length) {
       demoEmailField = demoEmailField + demoEmail.charAt(demoEmailCounter);
+      // setDemoEmailField(demoEmailField + demoEmail.charAt(demoEmailCounter))
       setEmail(demoEmailField);
       demoEmailCounter++;
+      console.log(demoEmailField)
+      // setDemoEmailCounter(demoEmailCounter + 1);
       setTimeout(demoLogin, typespeed);
     } else if (demoPasswordCounter < demoPassword.length) {
       demoPasswordField = demoPasswordField + demoPassword.charAt(demoPasswordCounter);
+      // setDemoPasswordField(demoPasswordField + demoPassword.charAt(demoPasswordCounter));
       setPassword(demoPasswordField);
+      // setDemoPasswordCounter(demoPasswordCounter + 1);
       demoPasswordCounter++;
       setTimeout(demoLogin, typespeed);
     } else {
       loginUser({ email: demoEmail, password: demoPassword });
       console.log(email, password);
       changeLoginStatus(true);
+      // setDemoEmailCounter(0);
+      // setDemoPasswordCounter(0);
+      // setDemoEmailField('');
+      // setDemoPasswordField('');
       demoEmailCounter = 0;
       demoPasswordCounter = 0;
-      demoEmailField = 0;
-      demoPasswordField = 0;
+      demoEmailField = '';
+      demoPasswordField = '';
     }
   }
 
-  const handleSubmit = event => {
+  const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
     const newUser = { email, password };
     loginUser(newUser);
   }
 
-  const handleChange = event => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { value, name } = event.target;
     if (name === "email") {
       setEmail(value);

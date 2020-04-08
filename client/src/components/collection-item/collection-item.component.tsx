@@ -1,6 +1,4 @@
-import React, { useContext } from 'react';
-
-import './collection-item.styles.scss';
+import React, { useContext } from 'react'
 
 import { 
   CollectionItemContainer, 
@@ -12,13 +10,17 @@ import {
 } from './collection-item.styles';
 
 import { CartContext } from '../../providers/cart/cart.provider';
+import ShopItem from '../../interface/shop-item.interface';
+interface ICollectionItemProps {
+  item: ShopItem
+}
 
-const CollectionItem = ({ item }) => {
+const CollectionItem: React.FC<ICollectionItemProps> = ({ item }) => {
   const { name, price, imageUrl } = item;
   const { addItem } = useContext(CartContext);
   return (
     <CollectionItemContainer>
-      <BackgroundImage className="image" imageUrl={imageUrl}></BackgroundImage>
+      <BackgroundImage className="image" imageUrl={imageUrl}/>
       <CollectionFooterContainer>
         <NameContainer>{ name }</NameContainer>
         <PriceContainer>${ price }</PriceContainer>
