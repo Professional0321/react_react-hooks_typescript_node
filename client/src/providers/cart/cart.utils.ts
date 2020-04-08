@@ -4,6 +4,7 @@ export const addPriceToTotal = (totalCost: number, cartItemPrice: number): numbe
   return totalCost + cartItemPrice;
 }
 
+
 export const removePriceFromTotal = (totalCost: number, cartItemPrice: number): number => {
   return totalCost - cartItemPrice;
 }

@@ -14,7 +14,7 @@ const CartDropdown: React.FC<IProps> = ({ history }) => {
   const { cartItems } = useContext(CartContext);
   const showCartItems = () => {
     if (cartItems.length > 0) {
-      (cartItems as []).map((cartItem: any, idx: number) => (
+      return ((cartItems as any).map((cartItem: any, idx: number) => 
         <CartItem key={idx} item={cartItem}/>
       ))
     } else {

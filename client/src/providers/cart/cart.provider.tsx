@@ -52,6 +52,7 @@ const CartProvider: React.FC<ICartProps> = ({ children }) => {
     setCartItems(addItemToCart(cartItems, item));
     setTotalCost(addPriceToTotal(totalCost, item.price));
     setCartItemsCount(addItemToCount(cartItemsCount, 1));
+    console.log(cartItems);
   };
 
   const removeItem = (item: ShopItem) => {
