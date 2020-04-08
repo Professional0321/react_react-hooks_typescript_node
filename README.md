@@ -6,7 +6,7 @@ E-Commerce Store allows users to browse the store, add/remove items from the car
 
 ## Technologies
 
-- Frontend: React, ContextAPI
+- Frontend: React, Hooks, Typescript, ContextAPI
 - Backend: Node, Express, MongoDB
 - [Stripe API](https://stripe.com/docs)
 
@@ -24,7 +24,22 @@ Palm Clothing was built with a Node and Express on the backend, utilizing a Mong
  
  Once a user logs in, they are able to view a visualization of their chart balance. They are also able to see general news, as well as stock/comapnies that they follow or own.
 ```javascript
-  export const CartContext = createContext({
+interface ICart {
+  hidden: boolean,
+  toggleHidden: Function,
+  cartItems: ShopItem[] | [],
+  addItem: Function,
+  removeItem: Function,
+  clearCartItem: Function ,
+  cartItemsCount: number,
+  totalCost: number,
+}
+
+interface ICartProps {
+  children: React.ReactNode;
+}
+
+export const CartContext = createContext<ICart>({
   hidden: true,
   toggleHidden: () => {},
   cartItems: [],
@@ -32,30 +47,30 @@ Palm Clothing was built with a Node and Express on the backend, utilizing a Mong
   removeItem: () => {},
   clearCartItem: () => {},
   cartItemsCount: 0,
-  total: 0
+  totalCost: 0
 })
 
-const CartProvider = ({ children }) => {
-  const [hidden, setHidden] = useState(true);
-  const [cartItems, setCartItems] = useState([]);
-  const [cartItemsCount, setCartItemsCount] = useState(0);
-  const [totalCost, setTotalCost] = useState(0)
+const CartProvider: React.FC<ICartProps> = ({ children }) => {
+  const [hidden, setHidden] = useState<boolean>(true);
+  const [cartItems, setCartItems] = useState<Array<ShopItem|any>> ([]);
+  const [cartItemsCount, setCartItemsCount] = useState<number>(0);
+  const [totalCost, setTotalCost] = useState<number>(0)
 
-  const toggleHidden = useCallback(() => setHidden(!hidden));
+  const toggleHidden = () => setHidden(!hidden);
 
-  const addItem = useCallback(item => {
+  const addItem = (item: ShopItem) => {
     setCartItems(addItemToCart(cartItems, item));
     setTotalCost(addPriceToTotal(totalCost, item.price));
     setCartItemsCount(addItemToCount(cartItemsCount, 1));
-  });
+  };
 
-  const removeItem = useCallback(item => {
+  const removeItem = (item: ShopItem) => {
     setCartItems(removeItemFromCart(cartItems, item));
     setTotalCost(removePriceFromTotal(totalCost, item.price));
     setCartItemsCount(removeItemFromCount(cartItemsCount, 1));
-  });
+  };
 
-  const clearCartItem = useCallback(item => setCartItems(filterItemFromCart(cartItems, item)));
+  const clearCartItem = (item: ShopItem) => setCartItems(filterItemFromCart(cartItems, item));
 
   useEffect(() => {
     setTotalCost(getCartTotalCost(cartItems));
@@ -64,18 +79,9 @@ const CartProvider = ({ children }) => {
 
   return (
     <CartContext.Provider
-      value={{
-        hidden,
-        toggleHidden,
-        cartItems,
-        addItem,
-        removeItem,
-        cartItemsCount,
-        totalCost,
-        clearCartItem
-      }}
+      value={{ hidden, toggleHidden, cartItems, addItem, removeItem, cartItemsCount, totalCost, clearCartItem }}
     >
-      { children }
+      {children}
     </CartContext.Provider>
   )
 }
