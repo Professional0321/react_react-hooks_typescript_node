@@ -12,6 +12,8 @@ E-Commerce Store allows users to browse the store, add/remove items from the car
 
 Palm Clothing was built with a Node and Express on the backend, utilizing a MongoDB for data storage, with a React for a dynamic frontend and ContextAPI for state management. Stripe API was used to allow the users to go through the user experience of checking items from a cart with a fake credit card to allow purchase.
 
+![](palmclothing-splash.gif)
+
 ## Features
 
 - Secure frontend to backend user authentication using JWT and BCRYPT
