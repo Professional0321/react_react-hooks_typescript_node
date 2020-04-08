@@ -1,17 +1,39 @@
 import React, { createContext, useState } from 'react';
 import { getCollectionSections, getCollections } from './collection.utils';
 
-export const CollectionContext = createContext({
+import Section from '../../interface/section.interface';
+import CollectionItem from '../../interface/collection-item.interface'
+
+interface ICollection {
+  getSections: Function,
+  getCollectionItems: Function,
+  collectionSections: Section[] | [],
+  collectionItems: CollectionItem[] | [],
+  singleCollection: {},
+  getSingleCollection: Function,
+}
+
+interface SingleCollection {
+  title: string,
+  routeName: string,
+  items: CollectionItem[],
+}
+
+interface ICartProps {
+  children: React.ReactNode;
+}
+
+export const CollectionContext = createContext<ICollection>({
   getSections: () => {},
-  getCollectionsItems: () => {},
+  getCollectionItems: () => {},
   collectionSections: [],
   collectionItems: [],
-  singleCollection: [],
+  singleCollection: {},
   getSingleCollection: () => {},
   // createCol: (collectionData) => {}
 })
 
-const CollectionProvider = ({ children }) => {
+const CollectionProvider: React.FC<ICartProps> = ({ children }) => {
   const [collectionSections, setCollectionSections] = useState([]);
   const [collectionItems, setCollectionItems] = useState([]);
   const [singleCollection, setSingleCollection] = useState({title: '', routeName: 'string', items: []});
@@ -37,10 +59,10 @@ const CollectionProvider = ({ children }) => {
   }
 
   // TODO: Create backend route to look for single collection instead of fetching all collections and filtering
-  const getSingleCollection = (collectionTitle) => {
+  const getSingleCollection = (collectionTitle: string) => {
     getCollections()
       .then(collections => {
-        const foundCollection = collections.data.filter(collection => collection.title.toLowerCase() === collectionTitle);
+        const foundCollection = collections.data.filter((collection: SingleCollection) => collection.title.toLowerCase() === collectionTitle);
         setSingleCollection(foundCollection[0]);
       })
       .catch(error => console.log(error));
@@ -55,14 +77,7 @@ const CollectionProvider = ({ children }) => {
 
   return (
     <CollectionContext.Provider
-      value={{
-        getSections,
-        collectionSections,
-        getCollectionItems,
-        getSingleCollection,
-        singleCollection,
-        collectionItems
-      }}
+      value={{ getSections, collectionSections, getCollectionItems, getSingleCollection, singleCollection, collectionItems }}
     >
       {children}
     </CollectionContext.Provider>

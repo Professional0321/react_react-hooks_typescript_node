@@ -1,13 +1,9 @@
-import ShopItem from './shop-item.interface';
-
 interface Section {
   collectionName: {
+    id: number,
     title: string,
     imageUrl: string,
-    id: number,
-    linkUrl?: string,
-    routeName?: string,
-    items: ShopItem[]
+    linkUrl: string,
   }
 }
 
