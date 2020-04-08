@@ -54,36 +54,49 @@ const Splash = () => {
         </div>
       </section>
       <section className="main-2">
-        <div className="feature-box">
-            <i className="feature-box__icon icon-basic-world"></i>
-            <h3 className="heading-tertiary u-margin-bottom-small">Express yourself</h3>
-            <p className="feature-box__test">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi suscipit fugit ab doloribus nulla repudiandae iusto dolores officia.
-            </p>
+        <div className="row">
+          <div className="col-1-of-4">
+            <div className="feature-box">
+                <i className="icon icon-basic-world"></i>
+                <h3 className="heading-tertiary">Express yourself</h3>
+                <p className="feature-box-text">
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi suscipit fugit ab doloribus nulla repudiandae iusto dolores officia.
+                </p>
+            </div>
+          </div>
         </div>
-        <div className="feature-box">
-            <i className="feature-box__icon icon-basic-compass"></i>
-            <h3 className="heading-tertiary">Uniquely You</h3>
-            <p className="feature-box__test">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi suscipit fugit ab doloribus nulla repudiandae iusto dolores officia.
-            </p>
+        <div className="row">
+          <div className="col-1-of-4">
+            <div className="feature-box">
+                <i className="icon icon-basic-compass"></i>
+                <h3 className="heading-tertiary">Uniquely You</h3>
+                <p className="feature-box-text">
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi suscipit fugit ab doloribus nulla repudiandae iusto dolores officia.
+                </p>
+            </div>
+          </div>
         </div>
-        <div className="feature-box">
-            <i className="feature-box__icon icon-basic-map"></i>
-            <h3 className="heading-tertiary">Find your way</h3>
-            <p className="feature-box__test">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi suscipit fugit ab doloribus nulla repudiandae iusto dolores officia.
-            </p>
+        <div className="row">
+          <div className="col-1-of-4">
+            <div className="feature-box">
+                <i className="icon icon-basic-map"></i>
+                <h3 className="heading-tertiary">Find your way</h3>
+                <p className="feature-box-text">
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi suscipit fugit ab doloribus nulla repudiandae iusto dolores officia.
+                </p>
+            </div>
+          </div>
         </div>
-        <div className="feature-box">
-            <i className="feature-box__icon icon-basic-clockwise"></i>
-            <h3 className="heading-tertiary">Refine your image</h3>
-            <p className="feature-box__test">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi suscipit fugit ab doloribus nulla repudiandae iusto dolores officia.
-            </p>
-        </div>
-        <div className="main-2 title">
-          {/* Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. */}
+        <div className="row">
+          <div className="col-1-of-4">
+            <div className="feature-box">
+                <i className="icon icon-basic-clockwise"></i>
+                <h3 className="heading-tertiary">Refine your image</h3>
+                <p className="feature-box-text">
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi suscipit fugit ab doloribus nulla repudiandae iusto dolores officia.
+                </p>
+            </div>
+          </div>
         </div>
       </section>
       {/* <Footer/> */}

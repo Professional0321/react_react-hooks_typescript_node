@@ -9,7 +9,6 @@
     height: 95%;
     position: relative;
     background-image: linear-gradient(to right bottom, rgba(225, 225, 225, 0.6), rgba(62, 63, 62, 0.8)), url("../../images/background-1.jpg");
-    // background-image: url("../../images/background-1.jpg");
     background-size: cover;
     background-size: 100% 100%;
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
@@ -91,6 +90,7 @@
 
   .main-2 {
     height: 110%;
+    width: 100%;
     background-image: url("../../images/background-4.jpg");
     clip-path: polygon(0 25vh, 100% 5%, 100% 100%, 0 100%);
     background-size: cover;
@@ -101,8 +101,7 @@
 
 
     .feature-box {
-      width: 20%;
-      height: 30%;
+      width: 225px;
       background-color: rgba(255, 255, 255, 0.9);
       font-size: 1.5rem;
       padding: 2.5rem;
@@ -110,15 +109,14 @@
       border-radius: 3px;
       box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
       transition: transform .3s;
-      margin-top: 47.5rem;
+      margin-top: 49.5rem;
     
       // @include respond(tab-port) {
       //   padding: 2rem;
       // }
     
-      &__icon {
+      .icon {
         font-size: 6rem;
-        margin-bottom: .5rem;
         display: inline-block;
         background-image: linear-gradient(to right, rgba(74, 74, 74, 0.6), rgba(0, 0, 0, 0.8));
         -webkit-background-clip: text;
@@ -128,7 +126,11 @@
         //   margin-bottom: 0;
         // }
       }
-    
+
+      .feature-box-text {
+        font-size: 12px;
+      }
+
       &:hover {
         transform: translateY(-1.5rem) scale(1.03);
       }
