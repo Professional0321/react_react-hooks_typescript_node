@@ -1,4 +1,4 @@
-import React, { createContext , useState, useEffect, useCallback } from 'react';
+import React, { createContext , useState, useReducer, useEffect, useCallback } from 'react';
 
 import ShopItem from '../../interface/shop-item.interface';
 
@@ -29,6 +29,19 @@ interface ICartProps {
   children: React.ReactNode;
 }
 
+// const CartReducer = (cartItems, newCartItems) => {
+//   if (cartIems)
+// }
+
+
+const initialCartItems = [''];
+// const initialCartItemsCount = 0;
+// const initialtotalCost = 0;
+
+const localCartItems = JSON.parse(localStorage.getItem('cartItems'));
+// const localCartItemCount = JSON.parse(localStorage.getItem('cartItemsCount'));
+// const localTotalCost = JSON.parse(localStorage.getItem('totalCost'));
+
 export const CartContext = createContext<ICart>({
   hidden: true,
   toggleHidden: () => {},
@@ -42,7 +55,7 @@ export const CartContext = createContext<ICart>({
 
 const CartProvider: React.FC<ICartProps> = ({ children }) => {
   const [hidden, setHidden] = useState<boolean>(true);
-  const [cartItems, setCartItems] = useState<Array<ShopItem|any>> ([]);
+  const [cartItems, setCartItems] = useState<Array<ShopItem|any>|[]> (localCartItems || initialCartItems);
   const [cartItemsCount, setCartItemsCount] = useState<number>(0);
   const [totalCost, setTotalCost] = useState<number>(0)
 
@@ -66,6 +79,12 @@ const CartProvider: React.FC<ICartProps> = ({ children }) => {
   useEffect(() => {
     setTotalCost(getCartTotalCost(cartItems));
     setCartItemsCount(getCartItemsCount(cartItems));
+  }, [cartItems])
+
+  useEffect(() => {
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+    // localStorage.setItem('totalCost', JSON.stringify(totalCost));
+    // localStorage.setItem('cartItemsCount', JSON.stringify(cartItemsCount));
   }, [cartItems])
 
   return (
