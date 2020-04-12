@@ -11,8 +11,7 @@ export const CheckoutItemContainer = styled.div`
 `
 
 export const ImageContainer = styled.div`
-   width: 23%;
-  padding-right: 15px;
+  width: 23%;
 
   img {
     width: 100%;
@@ -21,13 +20,17 @@ export const ImageContainer = styled.div`
 `
 
 export const TextContainer = styled.div`
-  width: 23%;
+  text-align: center;
+  width: 25%;
 `
 
-export const QuantityContainer = styled(TextContainer)`
+export const QuantityContainer = styled.div`
   display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20%;
   span {
-    margin: 0 10px;
+    margin: 0 5px;
   }
   div {
     cursor: pointer;

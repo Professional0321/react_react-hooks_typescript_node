@@ -29,11 +29,6 @@ interface ICartProps {
   children: React.ReactNode;
 }
 
-// const CartReducer = (cartItems, newCartItems) => {
-//   if (cartIems)
-// }
-
-
 const initialCartItems = [''];
 // const initialCartItemsCount = 0;
 // const initialtotalCost = 0;
@@ -59,22 +54,21 @@ const CartProvider: React.FC<ICartProps> = ({ children }) => {
   const [cartItemsCount, setCartItemsCount] = useState<number>(0);
   const [totalCost, setTotalCost] = useState<number>(0)
 
-  const toggleHidden = () => setHidden(!hidden);
+  const toggleHidden = useCallback(() => setHidden(!hidden), []);
 
-  const addItem = (item: ShopItem) => {
+  const addItem = useCallback((item: ShopItem) => {
     setCartItems(addItemToCart(cartItems, item));
     setTotalCost(addPriceToTotal(totalCost, item.price));
     setCartItemsCount(addItemToCount(cartItemsCount, 1));
-    console.log(cartItems);
-  };
+  }, [cartItems]);
 
-  const removeItem = (item: ShopItem) => {
+  const removeItem = useCallback((item: ShopItem) => {
     setCartItems(removeItemFromCart(cartItems, item));
     setTotalCost(removePriceFromTotal(totalCost, item.price));
     setCartItemsCount(removeItemFromCount(cartItemsCount, 1));
-  };
+  }, [cartItems]);
 
-  const clearCartItem = (item: ShopItem) => setCartItems(filterItemFromCart(cartItems, item));
+  const clearCartItem = useCallback((item: ShopItem) => setCartItems(filterItemFromCart(cartItems, item)), [cartItems]);
 
   useEffect(() => {
     setTotalCost(getCartTotalCost(cartItems));

@@ -20,10 +20,10 @@ const CheckoutItem: React.FC<ICheckoutItemProps> = ({ cartItem }) => {
       <TextContainer>{name}</TextContainer>
       <QuantityContainer>
         <div onClick={() => removeItem(cartItem)}>&#10094;</div>
-        <span className="quantity">{quantity}</span>
+        <span>{quantity}</span>
         <div onClick={() => addItem(cartItem)}>&#10095;</div>
       </QuantityContainer>
-      <TextContainer>{price}</TextContainer>
+      <TextContainer>${price}</TextContainer>
       <RemoveButtonContainer onClick={() => clearCartItem(cartItem)}>&#10005;</RemoveButtonContainer>
     </CheckoutItemContainer>
   )
