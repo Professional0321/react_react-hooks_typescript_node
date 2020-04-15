@@ -16,7 +16,7 @@ const Directory: React.FC<IDirectoryProps> = () => {
   
   return (
     <DirectoryContainer>
-      {(collectionSections as Section[]).map(({...otherSectionProps }, idx) => (<MenuItem key={idx} {...otherSectionProps}/>))}
+      {(collectionSections as any).map(({...otherSectionProps }, idx: number) => (<MenuItem key={idx} {...otherSectionProps}/>))}
     </DirectoryContainer>
   )
 }

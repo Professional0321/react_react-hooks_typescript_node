@@ -7,8 +7,8 @@ import CollectionItem from '../../interface/collection-item.interface'
 interface ICollection {
   getSections: Function,
   getCollectionItems: Function,
-  collectionSections: Section[] | [],
-  collectionItems: CollectionItem[] | [],
+  collectionSections: [] | Section[],
+  collectionItems: [] | CollectionItem[],
   singleCollection: {},
   getSingleCollection: Function,
 }

@@ -11,6 +11,7 @@ import {
 
 import { CartContext } from '../../providers/cart/cart.provider';
 import ShopItem from '../../interface/shop-item.interface';
+
 interface ICollectionItemProps {
   item: ShopItem
 }
