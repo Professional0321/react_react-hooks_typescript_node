@@ -1,4 +1,4 @@
-import React, { createContext , useState, useReducer, useEffect, useCallback } from 'react';
+import React, { createContext , useState, useEffect, useCallback } from 'react';
 
 import ShopItem from '../../interface/shop-item.interface';
 

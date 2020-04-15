@@ -11,9 +11,9 @@ const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 // const mongoConnect = require('./util/database');
 const mongoose = require("mongoose");
 // const User = require('./models/user.model');
-const usersRoute = require("./routes/api/users.route");
-const collectionsRoute = require("./routes/api/collection.route");
-const db = require("./config/keys").mongoURI;
+const usersRoute = require("./server/routes/api/users.route");
+const collectionsRoute = require("./server/routes/api/collection.route");
+const db = require("./server/config/keys").mongoURI;
 
 const app = express();
 const PORT = process.env.port || 5000;
@@ -29,7 +29,7 @@ app.use(bodyParser.json({ limit: '50mb' }));
 app.use(cors());
 
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static('../build'));
+  app.use(express.static(path.join(__dirname, 'build')));
   app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'build', 'index.html'));
   })
