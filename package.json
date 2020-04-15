@@ -34,13 +34,12 @@
     "typescript": "^3.8.3"
   },
   "scripts": {
-    "server": "nodemon app.js",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "tsc": "npm run tsc",
-    "dev": "concurrently \"npm run server\" \"npm run start\""
+    "dev": "concurrently \"cd server && npm run server\" \"npm run start\""
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -57,6 +56,7 @@
       "last 1 safari version"
     ]
   },
+  "proxy": "http://localhost:5000",
   "devDependencies": {
     "nodemon": "^2.0.2"
   }

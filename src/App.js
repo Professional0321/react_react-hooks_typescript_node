@@ -8,7 +8,6 @@ import ShopPage from './pages/shop/shop.component';
 import Session from './pages/session/session.component';
 import CheckoutPage from './pages/checkout/checkout.component';
 import Splash from './components/splash/splash.component';
-import Footer from './components/footer/footer.component';
 
 const App = ({ location }) => {
   const {pathname} = location;
