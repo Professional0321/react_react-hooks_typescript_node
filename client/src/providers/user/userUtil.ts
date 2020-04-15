@@ -3,6 +3,7 @@ import User from '../../interface/user.interface';
 
 const changeResponseForHeroku = {
   headers: {
+    'Accept': 'application/json',
     'Content-Type': 'application/json',
   }
 }
