@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const changeResponseForHeroku = {
   headers: {
-    'Content-Type': 'application/json',
+    'content-type': 'application/json',
   }
 }
 
