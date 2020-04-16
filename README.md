@@ -1,5 +1,5 @@
 # Palm Clothing
-[Live Demo](https://palm-clothing.herokuapp.com/shop)
+[Live Demo](https://palm-clothing.herokuapp.com/)
 
 E-Commerce Store allows users to browse the store, add/remove items from the cart, and purchase items using Stripe.
 
@@ -170,6 +170,38 @@ interface ShopItem {
   imageUrl: string,
   price: number,
   quantity?: number
+}
+```
+
+### Optimization using React hooks and code splitting
+
+Although the codebase was very small and optimization would have little to no effect on the application. I took it upon myself to learn the new React.lazy and React.suspense to learn about the react tools for optimizing web applications. I lazy loaded the main components that had more nested components and data (HomePage & ShopPage) to reduce the file size into chunks when rendered into the browser
+
+```javascript
+const HomePage = lazy(() => import('./pages/homepage/homepage.component'));
+const ShopPage = lazy(() => import('./pages/shop/shop.component'));
+const Session = lazy(() => import('./pages/session/session.component'));
+const CheckoutPage = lazy(() => import('./pages/checkout/checkout.component'));
+
+const App = ({ location }) => {
+  const { pathname } = location;
+  return (
+    <div className="app">
+      <GlobalStyle/>
+        {pathname !== "/" ? <Header/> : null}
+      <Switch>
+        <Route exact path="/" component={Splash}/>
+        <ErrorBoundary>
+          <Suspense fallback={<Spinner/>}>
+            <Route exact path="/home" component={HomePage}/>
+            <Route path="/shop" component={ShopPage}/>
+            <Route path="/signin" component={Session}/>
+            <Route exact path="/checkout" component={CheckoutPage}/>
+          </Suspense>
+        </ErrorBoundary>
+      </Switch>
+    </div>
+  )
 }
 ```
  

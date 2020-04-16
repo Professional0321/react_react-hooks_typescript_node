@@ -4,6 +4,7 @@ import { GlobalStyle } from './global.styles';
 
 import Splash from './components/splash/splash.component';
 import Header from './components/header/header.component';
+import ErrorBoundary from './components/error-boundary/error-boundary.component';
 import Spinner from './components/spinner/spinner.component';
 
 const HomePage = lazy(() => import('./pages/homepage/homepage.component'));
@@ -20,12 +21,14 @@ const App = ({ location }) => {
           {pathname !== "/" ? <Header/> : null}
         <Switch>
           <Route exact path="/" component={Splash}/>
-          <Suspense fallback={<Spinner/>}>
-            <Route exact path="/home" component={HomePage}/>
-            <Route path="/shop" component={ShopPage}/>
-            <Route path="/signin" component={Session}/>
-            <Route exact path="/checkout" component={CheckoutPage}/>
-          </Suspense>
+          <ErrorBoundary>
+            <Suspense fallback={<Spinner/>}>
+              <Route exact path="/home" component={HomePage}/>
+              <Route path="/shop" component={ShopPage}/>
+              <Route path="/signin" component={Session}/>
+              <Route exact path="/checkout" component={CheckoutPage}/>
+            </Suspense>
+          </ErrorBoundary>
         </Switch>
       </div>
   )
