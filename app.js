@@ -3,7 +3,6 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const path = require('path');
 const compression = require('compression');
-const httpProxy = require('http-proxy')
 
 if (process.env.NODE_ENV !== 'production') require('dotenv').config();
 
