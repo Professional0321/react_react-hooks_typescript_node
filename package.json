@@ -11,7 +11,7 @@
     "server": "nodemon app.js",
     "client-install": "npm install --prefix client",
     "client": "npm start --prefix client",
-    "start": "node app.js",
+    "start": "SET NODE_ENV=dev && node app.js",
     "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
   },
   "author": "",
