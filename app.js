@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const path = require('path');
 const compression = require('compression');
+const httpProxy = require('http-proxy')
 
 if (process.env.NODE_ENV !== 'production') require('dotenv').config();
 
@@ -34,6 +35,12 @@ if (process.env.NODE_ENV === 'production') {
     res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
   })
 }
+httpProxy.createProxyServer({
+  target: '*',
+  toProxy: true,
+  changeOrigin: true,
+  xfwd: true
+});
 
 app.use(express.json());
 app.use("/api/users", usersRoute)
