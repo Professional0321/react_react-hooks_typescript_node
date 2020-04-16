@@ -36,7 +36,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors());
 
-app.listen(port, () => console.log(`Server is listening on port: ${port}`));
 
 app.use(express.json());
 app.use("/api/users", usersRoute)
@@ -48,7 +47,7 @@ app.post('/payment', (req, res) => {
     amount: req.body.amount,
     currency: 'usd'
   };
-
+  
   stripe.charges.create(body, (stripeErr, stripeRes) => {
     if (stripeErr) {
       res.status(500).send({ error: stripeErr })
@@ -58,5 +57,6 @@ app.post('/payment', (req, res) => {
   })
 })
 
+app.listen(port, () => console.log(`Server is listening on port: ${port}`));
 
 
