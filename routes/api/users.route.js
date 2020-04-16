@@ -9,12 +9,16 @@ router.get("/test", (req, res) => res.json({ msg: "This is the users route for e
 
 router.get("/test2", (req, res) => {
   User.find()
-    .then(user => res.json(user))
+    .then(user => {
+      res.setHeader('Content-Type', 'application/json');
+      res.json(user);
+    })
     .catch(err => res.status(404).json({error: "Cannot find user"}));
 })
 
 
 router.get("/current", passport.authenticate('jwt', { session: false }), (req, res) => {
+  res.setHeader('Content-Type', 'application/json')
   res.json({
     _id: req.user.id,
     displayName: req.user.displayName,

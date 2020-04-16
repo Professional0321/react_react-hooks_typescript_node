@@ -9,7 +9,7 @@ router.get('/test', (req, res) => res.json({ msg: "This is the collections route
 router.get('/sections', (req, res) => {
   CollectionSection.find()
     .then(collectionSections => {
-      console.log(res);
+      res.setHeader('Content-Type', 'application/json');
       res.json(collectionSections);
     })
     .catch(error => res.status(404).json({ error: "Cannot find Sections!"}))
@@ -18,6 +18,7 @@ router.get('/sections', (req, res) => {
 router.get('/collection', (req, res) => {
   Collection.find()
     .then(collections => {
+      res.setHeader('Content-Type', 'application/json');
       res.json(collections);
     })
     .catch(error => {
