@@ -3,6 +3,8 @@
 
 E-Commerce Store allows users to browse the store, add/remove items from the cart, and purchase items using Stripe.
 
+TODO: RESPONSIVE WEB DESIGN
+
 ## Technologies
 
 - Frontend: React, Hooks, Typescript, ContextAPI
@@ -19,7 +21,8 @@ Palm Clothing was built with a Node and Express on the backend, utilizing a Mong
 - Simulate frontend to backend store checkout using Stripe API
 - Aethetic UI Design of Home Page
 - Allows Users to dynamically add, remove, and change number of items in their cart
-- Optimizing Performance through React Hooks(useMemo, useCallback) and code splitting
+- Optimizing Performance through React Hooks(useMemo, useCallback, lazy, and Suspense)
+
 
 ### Cart State Management using Context API
  
@@ -173,7 +176,7 @@ interface ShopItem {
 }
 ```
 
-### Optimization using React hooks and code splitting
+### Optimization using React hooks and code splitting & error boundary
 
 Although the codebase was very small and optimization would have little to no effect on the application. I took it upon myself to learn the new React.lazy and React.suspense to learn about the react tools for optimizing web applications. I lazy loaded the main components that had more nested components and data (HomePage & ShopPage) to reduce the file size into chunks when rendered into the browser
 
@@ -202,6 +205,41 @@ const App = ({ location }) => {
       </Switch>
     </div>
   )
+}
+```
+
+React introduces error boundaries in a way to catch errros down a child component tree to log those errors and display a UI that provides feedback instead of an ugly component tree error crashing.
+
+I made this component to go along with the lazy loading of the rest of the app to provide a more visually appealing UI whenever there is an error message in the application.
+
+```javascript
+  class ErrorBoundary extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      hasErrored: false
+    }
+  }
+
+  static getDerivedStateFromError(error) {
+    return { hasErrored: true};
+  }
+
+  componentDidCatch(error, errorInfo) {
+    console.log(error);
+  }
+
+  render() {
+    if (this.state.hasErrored) {
+      return (
+        <ErrorImageOverlay>
+          <ErrorImageContainer imageUrl='https://i.imgur.com/lKJiT77.png'/>
+          <ErrorImageText>Sorry this page is broken!</ErrorImageText>
+        </ErrorImageOverlay>
+      )
+    }
+    return this.props.children;
+  }
 }
 ```
  
