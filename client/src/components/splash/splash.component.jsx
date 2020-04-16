@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './splash.styles.scss'
 
-import Footer from '../footer/footer.component';
 import PalmTrees from '../../palms.svg';
 
 import Street1 from '../../images/street-clothing-1.jpg';
@@ -22,7 +21,6 @@ const Splash = () => {
               <span className="heading-primary--sub">where life happens</span>
           </h1>
           <Link to="/home" className="btn btn--white btn--animated">Enter the Store</Link>
-          {/* <a href="#" className="btn btn--white btn--animated">Enter the Store</a> */}
         </div>
       </section>
       <section className="about">

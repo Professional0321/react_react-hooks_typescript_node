@@ -54,7 +54,7 @@ const CartProvider: React.FC<ICartProps> = ({ children }) => {
   const [cartItemsCount, setCartItemsCount] = useState<number>(0);
   const [totalCost, setTotalCost] = useState<number>(0)
 
-  const toggleHidden = useCallback(() => setHidden(!hidden), []);
+  const toggleHidden = useCallback(() => setHidden(!hidden), [hidden]);
 
   const addItem = useCallback((item: ShopItem) => {
     setCartItems(addItemToCart(cartItems, item));

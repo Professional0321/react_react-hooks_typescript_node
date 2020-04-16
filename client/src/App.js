@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Route, Switch, withRouter } from 'react-router-dom'; 
 import { GlobalStyle } from './global.styles';
+import { CartContext } from './providers/cart/cart.provider';
 
 import Header from './components/header/header.component';
 import HomePage from './pages/homepage/homepage.component';
@@ -10,7 +11,9 @@ import CheckoutPage from './pages/checkout/checkout.component';
 import Splash from './components/splash/splash.component';
 
 const App = ({ location }) => {
-  const {pathname} = location;
+  const { pathname } = location;
+
+
   return (
       <div className="app">
         <GlobalStyle/>

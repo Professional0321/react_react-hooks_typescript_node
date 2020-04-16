@@ -1,8 +1,7 @@
 # Palm Clothing
-[Live Demo](http://wallstreet-bets.herokuapp.com/#/)
+[Live Demo](https://palm-clothing.herokuapp.com/shop)
 
 E-Commerce Store allows users to browse the store, add/remove items from the cart, and purchase items using Stripe.
-
 
 ## Technologies
 
@@ -20,11 +19,12 @@ Palm Clothing was built with a Node and Express on the backend, utilizing a Mong
 - Simulate frontend to backend store checkout using Stripe API
 - Aethetic UI Design of Home Page
 - Allows Users to dynamically add, remove, and change number of items in their cart
-- Optimizing Performance through React Hooks(useMemo, useCallback) and Code Splitting
+- Optimizing Performance through React Hooks(useMemo, useCallback) and code splitting
 
 ### Cart State Management using Context API
  
- Once a user logs in, they are able to view a visualization of their chart balance. They are also able to see general news, as well as stock/comapnies that they follow or own.
+Facebook released react hooks recently and I wanted to take a try to learn the new technology, especially a new way for state management without redux. This application uses the ContextAPI to wrap the whole application within a provider so that the data will flow through the entire app. I created a cart provider to manage a user's shopping cart in order to show the data in multiple places; the items through a dropdown menu as well as a cart checkout page .
+
 ```javascript
 interface ICart {
   hidden: boolean,
@@ -91,10 +91,12 @@ const CartProvider: React.FC<ICartProps> = ({ children }) => {
 
 ### Stripe API
 
+A user needs to be able to purchase items that they added to our cart so I thought it would be fun to implement an external library to do the whole process for me. Stripe is a solution for the connection between banks for the payment system so I integrated a backend and frontend using the Stripe API library to conduct the transaction for me.
+
 ```javascript
+//stripe-button.component.jsx
 const StripeCheckOutButton = ({ price }) => {
   const priceForStripe = price * 100;
-  const key = 'pk_test_UUiyCylfTQgfFNtvGMHNYxBW00igKn4Yn8';
 
   const onToken = token => {
     axios({
@@ -128,6 +130,7 @@ const StripeCheckOutButton = ({ price }) => {
   )
 }
 
+// app.js
 app.post('/payment', (req, res) => {
   const body = {
     source: req.body.token.id,
@@ -146,6 +149,27 @@ app.post('/payment', (req, res) => {
  
 }
 ```
- 
-### Dashboard
+### Typescript
+
+With the growing popularity of typescript, I wanted to try it myself and I can see why it's so loved! Static type languages allows a more robust codebase in allowing data that is passed in through each component to be more apparent and known to the person responsible for the code. With typescript I can clearly see the data flow throughout the application and able to catch bugs more frequently and often and in turn, spends less time debugging.
+
+```javascript
+
+interface CollectionItem {
+  id: number,
+  title: string,
+  imageUrl?: string,
+  linkUrl?: string,
+  routeName?: string,
+  items?: ShopItem[]
+}
+
+interface ShopItem {
+  id: number,
+  name: string,
+  imageUrl: string,
+  price: number,
+  quantity?: number
+}
+```
  

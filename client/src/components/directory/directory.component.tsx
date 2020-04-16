@@ -3,8 +3,6 @@ import MenuItem from '../menu-item/menu-item.component';
 import { DirectoryContainer } from './directory.styles';
 import { CollectionContext } from '../../providers/collection/collection.provider';
 
-import Section from '../../interface/section.interface'
-
 interface IDirectoryProps {}  
 
 const Directory: React.FC<IDirectoryProps> = () => {

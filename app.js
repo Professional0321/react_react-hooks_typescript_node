@@ -8,9 +8,7 @@ if (process.env.NODE_ENV !== 'production') require('dotenv').config();
 
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
-// const mongoConnect = require('./util/database');
 const mongoose = require("mongoose");
-// const User = require('./models/user.model');
 const usersRoute = require("./routes/api/users.route");
 const collectionsRoute = require("./routes/api/collection.route");
 const db = require("./config/keys").mongoURI;
