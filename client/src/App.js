@@ -1,18 +1,18 @@
-import React, { useContext } from 'react';
+import React, { lazy, Suspense } from 'react';
 import { Route, Switch, withRouter } from 'react-router-dom'; 
 import { GlobalStyle } from './global.styles';
-import { CartContext } from './providers/cart/cart.provider';
 
-import Header from './components/header/header.component';
-import HomePage from './pages/homepage/homepage.component';
-import ShopPage from './pages/shop/shop.component';
-import Session from './pages/session/session.component';
-import CheckoutPage from './pages/checkout/checkout.component';
 import Splash from './components/splash/splash.component';
+import Header from './components/header/header.component';
+import Spinner from './components/spinner/spinner.component';
+
+const HomePage = lazy(() => import('./pages/homepage/homepage.component'));
+const ShopPage = lazy(() => import('./pages/shop/shop.component'));
+const Session = lazy(() => import('./pages/session/session.component'));
+const CheckoutPage = lazy(() => import('./pages/checkout/checkout.component'));
 
 const App = ({ location }) => {
   const { pathname } = location;
-
 
   return (
       <div className="app">
@@ -20,10 +20,12 @@ const App = ({ location }) => {
           {pathname !== "/" ? <Header/> : null}
         <Switch>
           <Route exact path="/" component={Splash}/>
-          <Route exact path="/home" component={HomePage}/>
-          <Route path="/shop" component={ShopPage}/>
-          <Route path="/signin" component={Session}/>
-          <Route exact path="/checkout" component={CheckoutPage}/>
+          <Suspense fallback={<Spinner/>}>
+            <Route exact path="/home" component={HomePage}/>
+            <Route path="/shop" component={ShopPage}/>
+            <Route path="/signin" component={Session}/>
+            <Route exact path="/checkout" component={CheckoutPage}/>
+          </Suspense>
         </Switch>
       </div>
   )

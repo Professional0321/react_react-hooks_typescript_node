@@ -30,7 +30,6 @@ export const CollectionContext = createContext<ICollection>({
   collectionItems: [],
   singleCollection: {},
   getSingleCollection: () => {},
-  // createCol: (collectionData) => {}
 })
 
 const CollectionProvider: React.FC<ICartProps> = ({ children }) => {
@@ -42,7 +41,6 @@ const CollectionProvider: React.FC<ICartProps> = ({ children }) => {
     getCollectionSections()
       .then(sections => {
         setCollectionSections(sections.data);
-        console.log(sections);
       })
       .catch(error => console.log(error));
   }
@@ -51,7 +49,6 @@ const CollectionProvider: React.FC<ICartProps> = ({ children }) => {
     getCollections()
       .then(collections => {
         setCollectionItems(collections.data);
-        console.log(collections);
       })
       .catch(error => console.log(error));
   }
