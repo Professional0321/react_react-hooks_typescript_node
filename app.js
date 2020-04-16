@@ -15,7 +15,7 @@ const mongoose = require("mongoose");
 const usersRoute = require("./routes/api/users.route");
 const collectionsRoute = require("./routes/api/collection.route");
 const db = require("./config/keys").mongoURI;
-const herokuDB = require("./config/keys").herokuURI
+const herokuDB = require("./config/keys").herokuURI;
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -28,7 +28,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 mongoose
-  .connect(db || herokuURI , { useNewUrlParser: true })
+  .connect(db || herokuDB , { useNewUrlParser: true })
   .then(() => console.log("Connected to MongoDB..."))
   .catch(err => console.error("Could not connect to MongoDB..."));
 
