@@ -9,6 +9,7 @@ router.get('/test', (req, res) => res.json({ msg: "This is the collections route
 router.get('/sections', (req, res) => {
   CollectionSection.find()
     .then(collectionSections => {
+      console.log(res);
       res.json(collectionSections);
     })
     .catch(error => res.status(404).json({ error: "Cannot find Sections!"}))

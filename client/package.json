@@ -26,6 +26,7 @@
     "react-dom": "^16.13.0",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.0",
+    "react-scripts-ts": "^3.1.0",
     "react-stripe-checkout": "^2.6.3",
     "sass-resources-loader": "^2.0.1",
     "stripe": "^8.42.0",
@@ -34,11 +35,11 @@
     "typescript": "^3.8.3"
   },
   "scripts": {
+    "tsc": "npm run tsc",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "tsc": "npm run tsc"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
