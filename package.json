@@ -12,7 +12,7 @@
     "client-install": "npm install --prefix client",
     "client": "npm start --prefix client",
     "start": "node app.js",
-    "heroku-postbuild": "PM_CONFIG_PRODUCTION=false npm install npm && run build"
+    "heroku-postbuild": "cd client && npm install npm && run build"
   },
   "author": "",
   "license": "ISC",
