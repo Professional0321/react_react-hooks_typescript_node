@@ -26,15 +26,17 @@ mongoose
 
 app.use(compression());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json({ limit: '50mb' }));
+app.use(bodyParser.json());
 app.use(cors());
 
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, 'client/build')));
+  app.use(express.static('client/build'));
   app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
   })
 }
+
+app.listen(port, () => console.log(`Server is listening on port: ${port}`));
 
 app.use(express.json());
 app.use("/api/users", usersRoute)
@@ -56,6 +58,5 @@ app.post('/payment', (req, res) => {
   })
 })
 
-app.listen(port, () => console.log(`Server is listening on port: ${port}`));
 
 
