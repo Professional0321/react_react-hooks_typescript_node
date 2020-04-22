@@ -6,7 +6,6 @@ import CustomButton from '../custom-button/custom-button.component';
 import CartItem from '../cart-item/cart-item.component';
 
 import { CartContext } from '../../providers/cart/cart.provider';
-import ShopItem from '../../interface/shop-item.interface';
 
 interface ICartDropdownProps extends RouteComponentProps<any> {}
 

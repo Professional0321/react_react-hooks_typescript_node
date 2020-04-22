@@ -58,6 +58,7 @@
   },
   "proxy": "http://localhost:5000",
   "devDependencies": {
+    "enzyme-adapter-react-16": "^1.15.2",
     "nodemon": "^2.0.2"
   }
 }
