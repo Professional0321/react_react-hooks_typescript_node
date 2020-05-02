@@ -5,6 +5,10 @@
   width: 100vw;
   padding: 10px 20px;
 
+  @media screen and (max-width: 800px) {
+    padding: 0 0;
+  }
+
   .header {
     height: 95%;
     position: relative;
@@ -18,6 +22,10 @@
     justify-content: center;
     align-items: center;
 
+    @media screen and (max-width: 800px) {
+      height: 50%;
+    }
+
     .logo-box {
       position: absolute;
       top: 0;
@@ -26,6 +34,11 @@
       .logo-image {
         width: 125px;
         height: 125px;
+
+        @media screen and (max-width: 800px) {
+          width: 90px;
+          height: 90px;
+        }
       }
     }
 
@@ -34,6 +47,10 @@
       left: 50%;
       transform: translate(-50%, -50%);
       text-align: center;
+
+      @media screen and (max-width: 800px) {
+        top: 45%;
+      }
     }
   }
 
@@ -43,9 +60,22 @@
     margin-top: -18vh;
     height: 100%;
 
+    > div {
+      @media screen and (max-width: 800px) {
+        padding: 10px;
+      }
+    }
+
+    @media screen and (max-width: 800px) {
+      height: 90%;
+    }
+
     .about-header {
       margin-bottom: 8rem;
       text-align: center;
+      @media screen and (max-width: 800px) {
+        margin-bottom: 1rem;
+      }
     }
     
 
@@ -61,6 +91,10 @@
         transition: all .2s;
         outline-offset: 1rem;
 
+        @media screen and (max-width: 800px) {
+          width: 25%;
+        }
+
         &:hover {
           outline: 2.5px solid $color-black;
           border-radius: 8px;
@@ -68,21 +102,40 @@
           box-shadow: 0 2.5rem 4rem rgba($color-black, .5);
           z-index: 20;
         }
+
+        // @media screen and (max-width: 800px) {
+        //   float: left;
+        //   position: relative;
+        // }
       }
 
       .p1 {
         left: 0;
         top: -6rem;
+
+        @media screen and (max-width: 800px) {
+          left: 4rem;
+          top: 2rem;
+        }
       }
 
       .p2 {
         right: 8rem;
         top: -2rem;
+
+        @media screen and (max-width: 800px) {
+          right: 6.5rem;
+          top: 2rem;
+        }
       }
 
       .p3 {
         left: 8rem;
         top: 5em;
+        @media screen and (max-width: 800px) {
+          left: 14rem;
+          top: 5rem;
+        }
       }
 
     }
@@ -99,6 +152,22 @@
     display: flex;
     justify-content: space-evenly;
 
+    @media screen and (max-width: 800px) {
+      height: 70%;
+      overflow: hidden;
+      // display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      clip-path: polygon(0 25vh, 100% 15%, 100% 100%, 0 100%);
+    }
+
+    > div {
+      @media screen and (max-width: 800px) {
+        height: 75px;
+        width: 75px;
+      }
+    }
+
 
     .feature-box {
       width: 225px;
@@ -110,10 +179,15 @@
       box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
       transition: transform .3s;
       margin-top: 49.5rem;
-    
-      // @include respond(tab-port) {
-      //   padding: 2rem;
-      // }
+
+      @media screen and (max-width: 800px) {
+        width: 150px;
+        display: none;
+        flex-direction: column;
+        height: 90px;
+        overflow: hidden;
+      }
+
     
       .icon {
         font-size: 6rem;
@@ -121,14 +195,18 @@
         background-image: linear-gradient(to right, rgba(74, 74, 74, 0.6), rgba(0, 0, 0, 0.8));
         -webkit-background-clip: text;
         color: transparent;
-    
-        // @include respond(tab-port) {
-        //   margin-bottom: 0;
-        // }
+
+        @media screen and (max-width: 800px) {
+          font-size: 3rem;
+        }
       }
 
       .feature-box-text {
         font-size: 12px;
+
+        @media screen and (max-width: 800px) {
+          font-size: 8px;
+        }
       }
 
       &:hover {

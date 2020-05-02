@@ -8,12 +8,6 @@ export const HeaderContainer = styled.div`
   display: flex;
   justify-content: space-between;
   position: relative;
-
-  @media screen and (max-width: 800px) {
-      height: 6rem;
-      padding: 1rem;
-      ${'' /* margin-bottom: 0; */}
-    }
 `
 
 export const LogoContainer = styled(Link)`
