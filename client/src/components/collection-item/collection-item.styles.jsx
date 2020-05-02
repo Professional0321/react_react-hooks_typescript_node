@@ -21,6 +21,20 @@ export const CollectionItemContainer = styled.div`
       display: flex;
     }
   }
+
+  @media screen and (max-width: 800px) {
+    width: 45vw;
+
+    &:hover {
+      .image{
+        opacity: unset;
+      }
+
+      button {
+        opacity: unset;
+      }
+    }
+  }
 `
 export const BackgroundImage = styled.div`
   width: 95%;
@@ -29,6 +43,16 @@ export const BackgroundImage = styled.div`
   background-position: center;
   margin-bottom: 5px;
   background-image: ${({ imageUrl }) => `url(${imageUrl})`};
+
+  &:hover {
+    height: 100%;
+    weight: 100%:
+  }
+
+  @media screen and (max-width: 800px) {
+    width: 100%;
+    height: 100%;
+  }
 `
 
 export const AddButton = styled(CustomButton)`
@@ -39,6 +63,13 @@ export const AddButton = styled(CustomButton)`
   position: absolute;
   top: 33rem;
   display: none;
+
+  @media screen and (max-width: 800px) {
+    display: block;
+    opacity: 0.9;
+    min-width: unset;
+    padding: 0 10px 0 10px;
+  }
 `
 
 export const CollectionFooterContainer = styled.div`
